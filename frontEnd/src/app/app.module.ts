@@ -48,7 +48,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
 
 
 
@@ -105,8 +105,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    DateTimePickerModule
     
         // AngularFontAwesomeModule
     ],

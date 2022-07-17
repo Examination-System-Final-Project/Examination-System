@@ -74,11 +74,11 @@
           </tr>
           </table>
         </div>
-                <input (click)="next(); examcreate();" type="button" name="next" class="next action-button" value="Next"/>
+                <input (click)=" examcreate();next();" type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>
         </form>
-        
-    
+     
+
 <!----------------------------------------------------------------------------------------------------------------------->
          <form [formGroup]="assignquestions" id="msform">
             <fieldset *ngIf="step == 2" >

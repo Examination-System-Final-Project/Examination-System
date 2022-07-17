@@ -12,9 +12,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { instructor } from 'src/app/models/instructor';
+import { DateTimePicker } from '@syncfusion/ej2-calendars';
 @Component({
   selector: 'app-examcreation',
   templateUrl: './examcreation.component.html',
+
   styleUrls: ['./examcreation.component.css']
 })
 export class ExamcreationComponent implements OnInit {
@@ -36,7 +38,10 @@ desdata:any=[] ;
 send = false ;
 sendGroup = false ;
 examid:any =[] ;
-
+public month: number = new Date().getMonth();
+  public fullYear: number = new Date().getFullYear();
+  public minDate: Date = new Date(this.fullYear, this.month , 22, 12);
+  public maxDate: Date = new Date(this.fullYear, this.month, 25, 17);
 groups:any= [] ;
 isChecked:any
 numberOfQuestion=0 ;
