@@ -23,7 +23,7 @@ exports.addInstructor = async (req, res) => {
             msg: "400 Bad Request"
         })
     }
-    const user = await db.conn.promise().query(`SELECT * FROM Instructor WHERE Email ='${email}'`)
+    const user = await db.conn.promise().query(`SELECT * FROM instructor WHERE Email ='${email}'`)
     if (user[0].length > 0) {
         return res.status(400).json({
             status: 'error',
@@ -37,7 +37,7 @@ exports.addInstructor = async (req, res) => {
             }
             const hashedPassword = hash
             await db.conn.promise()
-                .query(`INSERT INTO Instructor(FirstName,LastName,Email,
+                .query(`INSERT INTO instructor(FirstName,LastName,Email,
         Password,PhoneNumber,Gender, Organization_ID)
         VALUES('${firstName}',
         '${lastName}','${email}','${hashedPassword}','${phoneNumber}',
@@ -66,7 +66,7 @@ exports.listInstructorExams = async (req, res) => {
 
     await db.conn.promise().query(`
     SELECT * FROM exam 
-    WHERE Instructor_ID = ${instructorId}
+    WHERE instructor_ID = ${instructorId}
     `).then(data => {
         res.status(200).json({
             InstructorExams: data[0]
