@@ -506,7 +506,7 @@ export class NormalExamComponent implements OnInit {
   if(this.currentQuestion==this.examLength-1)
   {
     
-    localStorage.setItem('numberOfQuestion','')
+    localStorage.removeItem('numberOfQuestion')
     this.storeExamineeAnswer.storeExamineeAnswer(this.EID,this.ExID,questionID,this.answers.value).subscribe((res)=>{
       this.answers.controls['examineeAnswer'].setValue('')
       console.log(res)

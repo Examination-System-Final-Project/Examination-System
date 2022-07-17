@@ -30,6 +30,7 @@ export class DashProfileSettingsComponent implements OnInit {
     const token = localStorage.getItem('token')! 
     const decodedToken = this.helper.decodeToken(token)
     this.examinee.firstName=decodedToken.firstName
+    this.examinee.lastName=decodedToken.lastName
   }
   logoutExaminee()
   {

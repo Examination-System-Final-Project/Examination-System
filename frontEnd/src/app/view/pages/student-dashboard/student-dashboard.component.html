@@ -27,8 +27,8 @@
     </div>
     <br>
     
-     <a *ngIf="condition=='Normal'" [routerLink]="['/normalExam',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
-     <a *ngIf="condition=='Injured'" [routerLink]="['/injuredExam',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
+     <a *ngIf="condition=='Normal' && examStartTime[in] <= time && examEndTime[in] > time" [routerLink]="['/normalExam',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
+     <a *ngIf="condition=='Injured' && examStartTime[in] <= time && examEndTime[in] > time" [routerLink]="['/injuredExam',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
      <a *ngIf="condition=='Handicapped' && examStartTime[in] <= time && examEndTime[in] > time" [routerLink]="['/instructionPage',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
   </div>
   </div>

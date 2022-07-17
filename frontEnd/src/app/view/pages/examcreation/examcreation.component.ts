@@ -193,7 +193,7 @@ examcreate(){
   this.examcreationphase1.removeControl('endDate');
   this.examcreationphase1.controls['endTime'].setValue(this.endTime);
   console.log(this.examcreationphase1.value)
-  this._createexam.createExam(this.examcreationphase1.value).subscribe((result:any)=>
+  this._createexam.createExam(this.instructor.id,this.examcreationphase1.value,).subscribe((result:any)=>
     {
       
       alert("exam created");
