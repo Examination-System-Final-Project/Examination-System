@@ -24,7 +24,7 @@
             <th scope="col">Total exam questions</th>
             <th scope="col">Total correct answers</th>
             <th scope="col">Total wrong answers </th>
-       
+            <th scope="col">Preview </th>
            
               
              </tr>
@@ -50,7 +50,7 @@
           <td>
         {{hero.total_wrong_answers}}
       </td>
-     
+      <td>  <a class="btn btn-dark" [routerLink]="['/dashpreviewExamInstructor',hero.exam_ID]" (click)="sendExamnieeId(hero.examinee_ID)">Preview</a></td>
               </tr>
           </tbody>
           </table>

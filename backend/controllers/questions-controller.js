@@ -229,8 +229,7 @@ exports.createQuestionEssay = async (req, res) => {
                 QuestionTitle,QuestionWeight, CorrectAnswer, QuestionBank_ID)
                VALUES(?,
                ?,?,
-               ?, ?, ?,
-               ?)
+               ?, ?, ?)
                `,[questionType,
                questionDifficulty,questionTitle,
                questionWeight,

@@ -47,6 +47,8 @@ import { NgxMaterialTimepicker24HoursFaceComponent } from 'ngx-material-timepick
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -54,6 +56,8 @@ import { DatePipe } from '@angular/common';
 @NgModule({
     declarations: [
         AppComponent,
+       
+
     ],
     imports: [
        
@@ -101,7 +105,7 @@ import { DatePipe } from '@angular/common';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-   
+    BrowserAnimationsModule
     
         // AngularFontAwesomeModule
     ],

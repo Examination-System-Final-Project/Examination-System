@@ -16,7 +16,7 @@ bassem:any
      const options = {
        params : params
      }
-     return this.http.post(`http://localhost:3000/exam/assignQuestionToExam?question=${this.questionid}&exam=${this.examid}`,grade)
+     return this.http.post(`http://localhost:3000/exam/assignQuestionToExam?question=${this.questionid}&exam=${this.examid}`,{questionGrade: grade})
   }
   setExamGrade(examGrade : any, examid : any)
   {

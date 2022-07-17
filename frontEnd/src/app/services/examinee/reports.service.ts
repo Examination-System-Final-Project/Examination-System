@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ReportsService {
-
+  examnieeId:any
   constructor(private http : HttpClient) {}
   GetStudentExams(id : any ){
     return this.http.get(`http://localhost:3000/evaluation/getAllExamEvaluationStatsForExaminee?examinee=${id}`)   
@@ -16,8 +16,8 @@ export class ReportsService {
   getInstructorExams(id:any){
     return this.http.get (`http://localhost:3000/evaluation/getInstructorExams?instructor=${id}`)   
   }
-  previewExamReport(exam:any){
-    return this.http.get (`http://localhost:3000/evaluation/getExamEvaluationStatsForEachExaminee?instructor=9&exam=${exam}`)   
+  previewExamReport(exam:any,instructorID:any){
+    return this.http.get (`http://localhost:3000/evaluation/getExamEvaluationStatsForEachExaminee?instructor=${instructorID}&exam=${exam}`)   
   }
   
 }
