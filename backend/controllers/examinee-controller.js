@@ -1,25 +1,25 @@
-    const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt")
 const Joi = require('joi')
 const passport = require('passport')
 const db = require('../database')
 
 exports.selectExaminee = async (req, res) => {
-    
-        const id = req.param('examinee')
-        const user = await db.conn.promise().query(`SELECT * FROM examinee WHERE Examinee_ID ='${id}'`)
-            .then(user => {
-                res.status(200).json(user[0][0])
-            })
-            .catch(error => {
-                console.log(error);
-                console.log("###########", id)
-                res.status(500).json({
 
-                    status: "error",
-                    msg: "500 internal server error"
-                })
+    const id = req.param('examinee')
+    const user = await db.conn.promise().query(`SELECT * FROM examinee WHERE Examinee_ID ='${id}'`)
+        .then(user => {
+            res.status(200).json(user[0][0])
+        })
+        .catch(error => {
+            console.log(error);
+            console.log("###########", id)
+            res.status(500).json({
+
+                status: "error",
+                msg: "500 internal server error"
             })
-    
+        })
+
 }
 
 exports.addExaminee = async (req, res) => {
@@ -37,7 +37,7 @@ exports.addExaminee = async (req, res) => {
         password: Joi.string().min(5),
         firstName: Joi.string(),
         lastName: Joi.string(),
-        gender : Joi.string(),
+        gender: Joi.string(),
         phoneNumber: Joi.string(),
         ExamieeCondition: Joi.string(),
     })
@@ -97,9 +97,9 @@ exports.editExaminee = async (req, res) => {
     const schema = Joi.object().keys({
         firstName: Joi.string(),
         lastName: Joi.string(),
-        gender : Joi.string(),
-       phoneNumber : Joi.string(),
-       email : Joi.string(),
+        gender: Joi.string(),
+        phoneNumber: Joi.string(),
+        email: Joi.string(),
         examineeCondition: Joi.string(),
     })
     const result = schema.validate(req.body)
