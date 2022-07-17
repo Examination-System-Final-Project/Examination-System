@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewModule } from './view/view.module';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatInputModule} from '@angular/material/input';
@@ -46,6 +46,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgxMaterialTimepicker24HoursFaceComponent } from 'ngx-material-timepicker';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -53,7 +54,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
     declarations: [
         AppComponent,
-
     ],
     imports: [
        
@@ -64,7 +64,6 @@ import { MatNativeDateModule } from '@angular/material/core';
         FormsModule,
         ViewModule,
         HttpClientModule,
-        BrowserAnimationsModule,
         FontAwesomeModule,
         MatInputModule,
         MatAutocompleteModule,
@@ -136,7 +135,7 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatSortModule,
         MatPaginatorModule,
     ],
-    providers: [],
+    providers: [DatePipe],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
