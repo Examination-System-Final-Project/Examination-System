@@ -164,7 +164,7 @@ exports.storeExamineeAnswer = async (req, res) => {
     let checkAnswerExists = false
     console.log(examineeAnswer + " ay haga ")
     await db.conn.promise().query(`
-    SELECT * FROM Examinee_Answer
+    SELECT * FROM examinee_answer
     WHERE examinee_Examinee_ID = ${examinee} AND exam_Exam_ID = ${exam} AND
     question_Question_ID = ${question}
     `).then(data => {
