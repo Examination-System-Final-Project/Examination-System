@@ -191,10 +191,11 @@
                     console.log('deleted answer')
                     await db.conn.promise().query(`
         INSERT INTO examinee_answer (examinee_Examinee_ID, exam_Exam_ID, question_Question_ID, examinee_answer)
-        VALUES ('${examinee}','${exam}','${question}','${examineeAnswer}')
-        `).then(data => {
-                        console.log('inserted after deleted')
-                    })
+        VALUES (?, ?, ?, ?)
+        `, [examinee, exam, question, examineeAnswer])
+                        .then(data => {
+                            console.log('inserted after deleted')
+                        })
                 })
             } else {
                 await db.conn.promise().query(`
