@@ -49,7 +49,7 @@ exports.createExam = async (req, res) => {
 }
 
 exports.setExamGradeManual = async (req, res) => {
-    const grade = req.body.grade
+    const grade = req.param('grade')
     const examId = req.param('exam')
 
     await db.conn.promise().query(`
@@ -380,7 +380,7 @@ exports.listExamQuestionsForExaminee = async (req, res) => {
     exam = await db.conn.promise()
         .query(`
         SELECT * FROM examinee_unique_exam
-        JOIN Question ON examinee_unique_exam.question_ID = Question.Question_ID
+        JOIN question ON examinee_unique_exam.question_ID = question.question_ID
         WHERE exam_ID = ${examId} AND examinee_ID = ${examineeId}
         ORDER BY random
     `).then(data => {
