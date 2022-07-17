@@ -1,0 +1,41 @@
+<section class="p-5 " >
+    <div class="container ">
+
+        
+     
+    
+
+    <table class="table" >
+        <thead>
+          <tr>
+            
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Add To Group</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hero of desdata">
+            <td>
+              {{hero.Examinee_ID}}
+            </td>
+            <td>
+                {{hero.FirstName}}
+            </td>
+            <td>
+                {{hero.LastName}}
+            </td>
+            <td>
+                {{hero.PhoneNumber}}
+            </td>
+         <td>
+            <a class="btn btn-outline-primary"  (click)="addstudent(hero.Examinee_ID)">Add</a>
+         </td>   
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   </section>

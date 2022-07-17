@@ -1,0 +1,85 @@
+<section class="p-5 " >
+    <div class="container ">
+        <blockquote class="blockquote">
+            <h1 style="text-align: center;">Groups</h1>
+          </blockquote>
+          <br>
+          
+         <!-- <div class=" d-flex ">
+           <div class="p-2">
+           <input  class="Search " placeholder="Search..." type="text">
+          </div>
+          <div class="p-2">
+          <button type="button" class=" btn-primary p-2">Search</button>
+        </div>
+          <div class="ml-auto p-2">
+            <button type="button" class=" btn-success " (click)="open(content)"
+            >Create New Question bank</button>
+          </div>
+           
+        </div> -->
+    
+    <br>
+    <br>
+    <table class="table table-striped custom-table">
+      <thead style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+      letter-spacing: normal;
+      margin: 0 0 16px;">
+        <tr style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+        letter-spacing: normal;
+        margin: 0 0 16px;">
+            
+            <th scope="col">Name</th>
+            <th scope="col">Number of Members </th>
+            <th scope="col">Actions</th>
+            <th>  <div> <button  (click)="open(content)" type="button" style="width:107%; height : auto;" class="btn btn-secondary " 
+              >Create New Group</button></div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hero of groups">
+            <td>
+              {{hero.GroupName}}
+            </td>
+            <td>
+              {{hero.numberOfExaminees}}
+            </td>
+            <td class="box"><button class="btn btn-danger" (click)="deleteGroup(hero.Group_ID)">
+              Delete
+            </button>
+            <a class="btn btn-dark" [routerLink]="['/dashboardpreviewGroups',hero.Group_ID]">Edit and Preview</a>
+          </td>
+          <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   </section>
+   <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New Group</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form" (ngSubmit)="createGroup()">
+        <div class="form-group">
+          <label for="firstname">Group Name </label>
+          <div class="input-group">
+            <input formControlName="groupName" class="form-control" >
+          </div>
+          <label for="description">Description (optional) </label>
+          <div class="input-group">
+            <input formControlName="groupDescription" class="form-control" >
+          </div>
+    
+          <div class="input-group modal-footer">
+            <button class="btn btn-primary btn-lg text-light btn-block" type="submit" (click)="modal.dismiss('Cross click')">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>

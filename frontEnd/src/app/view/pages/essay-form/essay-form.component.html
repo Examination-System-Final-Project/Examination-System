@@ -1,0 +1,31 @@
+<form [formGroup]="questionForm" (ngSubmit)="createEssay()">
+<div class="form-outline mb-4 p-2">
+    <label class="form-label px-1" >Question Type</label> 
+    <select  formControlName="questionType" [(ngModel)]="defaultValue">
+        <option value="mcq" >MCQ</option>
+        <option value="truefalse">TRUE OR FALSE</option>
+        <option value="essay" selected>ESSAY</option>
+      </select>
+</div>
+<div class="form-outline mb-4 p-1 mt-3 ">
+<label class="form-label" for="difficulty" >Question Difficulty</label>
+<select name="difficulty" id="difficulty" formControlName="questionDifficulty">
+    <option value="EASY">EASY</option>
+    <option value="MODERATE">MODERATE</option>
+    <option value="HARD">HARD</option>
+  </select>
+</div>
+<div class="form-outline mb-4">
+<label class="form-label"  >Question Title</label>
+  <input type="text" id="Title" class="form-control form-control-lg" formControlName="questionTitle"   required />
+</div>
+<div class="form-outline mb-4">
+    <label class="form-label" for="form3Example4cdg">Question Weight</label>
+  <input type="text" id="weight" class="form-control form-control-lg"  required formControlName="questionWeight"/>
+</div>
+<div class="mt-3">
+    <label class="form-label" >Answer</label>
+    <input type="text"  class="form-control form-control-lg" formControlName="correctAnswer"   required >
+</div>
+<button class="btn btn-primary  m-3" type="submit">CREATE</button>
+</form>

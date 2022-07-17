@@ -1,0 +1,33 @@
+<div class=" d-flex justify-content-end">
+  <button class=" btn-dialog-close " mat-stroked-button >X</button>
+  </div>
+<form [formGroup]="editForm" (ngSubmit)="editQuestion()">
+
+  <div class="form-outline mb-4">
+    <label class="form-label"  >Exam Name</label>
+      <input type="text"  class="form-control form-control-lg" formControlName="examName"   required />
+      
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form3Example4cdg">description</label>
+  <input type="text" id="weight" class="form-control form-control-lg"  required formControlName="description"/>
+</div>
+
+<div class="form-outline mb-4">
+<label class="form-label" for="option1">duration</label>
+<input type="number" id="option1" class="form-control form-control-lg" formControlName="duration"   required pattern="^[0-9]+$" />
+
+</div>
+<div class="form-outline mb-4">
+<label class="form-label" for="option1">Start Time</label>
+<input type="text" id="option2" class="form-control form-control-lg" formControlName="startTime" pattern="^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$"  required />
+
+</div>
+<div class="form-outline mb-4">
+<label class="form-label" for="option1">End Time</label>
+<input type="text" id="option3" class="form-control form-control-lg" formControlName="endTime" pattern="^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) (2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$"  required />
+
+</div> 
+
+<button class="btn btn-primary  m-3" type="submit" (click)=" editQuestion()">EDIT</button>
+</form>

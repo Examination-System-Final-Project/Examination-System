@@ -1,0 +1,167 @@
+  <div class="container py-5">
+  
+  <div class="row"> 
+    <div class="col-md-12 col-md-offset-3">
+        <form [formGroup]="examcreationphase1" id="msform">
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li [ngClass]="step>=1 ? 'active ' : 'inactive'" style="color:black;">Create Exam</li>
+                <li [ngClass]="step>=2 ? 'active' : 'inactive'" style="color:black;">Choose Questions</li>
+                <li [ngClass]="step==3 ? 'active' : 'inactive'" style="color:black;">Assign to Examiners </li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset  *ngIf="step == 1" >
+                <h2 class="fs-title">Create Exam</h2>
+                
+                <input type="text" formControlName="examName" placeholder="Exam name" />
+                <small *ngIf="f.examName.invalid && f.examName.touched" class="text-danger">Exam name is empty</small> 
+               
+                <br>
+                <br>
+                <input type="text" formControlName="description" placeholder="Description" />
+                <small *ngIf="f.description.invalid && f.description.touched" class="text-danger">Description is empty</small> 
+               <br>
+               <br>
+               <input type="number" formControlName="numberOfAttempts" placeholder="Number of attempts" min="1" />
+               <small *ngIf="f.numberOfAttempts.invalid && f.numberOfAttempts.touched" class="text-danger">Number of attempts is empty</small> 
+              <br>
+              <br>
+                <input type="number" formControlName="duration"  placeholder="Duration by minutes" min="1" pattern="^[0-9]+$"/>
+                <small *ngIf="f.duration.invalid && f.duration.touched" class="text-danger">Duration of attempts is empty</small> 
+               
+               <br>
+               <br>
+             <div class="d-flex justify-content-center">
+               <table>
+              <tr>
+                
+                <td>
+                <div class="input-group">
+                  <input class="form-control" placeholder="Starting date"
+                         name="dp"  ngbDatepicker #d="ngbDatepicker" formControlName="startDate">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">Choose starting</button>
+                  <small *ngIf="f.startDate.invalid && f.startDate.touched" class="text-danger">Starting date is empty</small> 
+                </div>
+              </td>
+              <br>
+              <td style="visibility:hidden;">____________</td>
+               <td>
+               <div class="input-group">
+                <input class="form-control" placeholder="Ending date" formControlName="endDate"
+                       name="dp" [(ngModel)]="model" ngbDatepicker #e="ngbDatepicker">
+                <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button">Choose Ending</button>
+                <small *ngIf="f.endDate.invalid && f.endDate.touched" class="text-danger">End date is empty</small> 
+              </div>
+            </td>
+             
+           
+          </tr>
+          
+          <tr>
+            <td>
+              <input type="text"  placeholder="Starting time ex: 04:23"  formControlName="startTime" />
+              <small *ngIf="f.startTime.invalid && f.startTime.touched" class="text-danger">Starting time is either empty or invalid</small> 
+            </td>
+            <br>
+            <td style="visibility:hidden;">___________________________</td>
+           <td>
+            <input type="text"  placeholder="Ending time ex: 04:23"  formControlName=endTime/>
+           
+              <small *ngIf="f.endTime.invalid && f.endTime.touched" class="text-danger">Ending time is either empty or invalid</small> 
+              
+          
+          </td>
+          </tr>
+          </table>
+        </div>
+                <input (click)="next(); examcreate();" type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+        </form>
+        
+    
+<!----------------------------------------------------------------------------------------------------------------------->
+         <form [formGroup]="assignquestions" id="msform">
+            <fieldset *ngIf="step == 2" >
+                <h2 class="fs-title">Assign questions from question banks</h2>
+                
+                <label class="form-label px-1" >choose question bank</label>
+                <br>
+                <button class="mx-3 btn-primary rounded" (click)="openDialog()">auto Generation</button> 
+                <select  formControlName="questionbank" #optionValue (change)="lol($event)">
+                    <option  *ngFor="let hero of desdata; let in = index"  [value]=" hero.QuestionBank_ID" >{{hero.QuestionBankName}}</option>
+                  </select>
+
+           <h1>Number of Questions in exam : {{numberOfQuestion}} / Exam Grade = {{examGrade}} </h1>
+
+
+                <table class="table table-striped">
+                  <thead>
+                    <tr >
+                      <th scope="col">Add question</th>
+                      <th scope="col">Question</th>
+                      <th scope="col">type</th>
+                     
+                      <th scope="col">difficulty</th>
+                      <th scope="col">Grade</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let hero of questions[0]; let in = index">
+                      <th scope="row"> <input class="form-check-input" type="checkbox" value="hero.QuestionId" id="flexCheckDefault" (click)="selected($event,hero.Question_ID)" ></th>
+                      <td>{{hero.QuestionTitle}}</td>
+                      <td>{{hero.QuestionType}}</td>
+                      <td>{{hero.QuestionDifficulty}} </td>
+                      <td>
+                        <form [formGroup]="grade">
+                      <input type="number" formControlName="questionGrade" class="form-control-sm" min="1">
+                      </form>
+                      
+                      </td>
+      
+                    </tr>
+                 
+                    
+                  </tbody>
+                </table>
+                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input  (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+        </form>
+<!----------------------------------------------------------------------------------------------------------------------->
+         <form [formGroup]="educationalDetails" id="msform">
+            <fieldset *ngIf="step == 3">
+              <h2 class="fs-title">Assign students from your organization</h2>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">+</th>
+                    <th scope="col">name</th>
+                    <th scope="col">description</th>
+                    <th scope="col">Group ID</th>
+                 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let bassem of groups" >
+                    <td><input class="form-check-input" type="checkbox" value="{{bassem.Group_ID}}" (click)="selectGroup($event,bassem.Group_ID)"></td>
+                    <td>
+                      {{bassem.GroupName}}
+                    </td>
+                    <td>
+                        {{bassem.Description}}
+                    </td>
+                    <td>
+                        {{bassem.Group_ID}}
+                    </td>
+                 
+                  </tr>
+                </tbody>
+              </table>
+                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input (click)="submit()"type="submit" name="submit" class="submit action-button" value="Submit"  [routerLink]="['/instructorDashboard']"/>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</div>

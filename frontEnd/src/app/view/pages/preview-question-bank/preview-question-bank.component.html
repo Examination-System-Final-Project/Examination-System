@@ -1,0 +1,146 @@
+<div class="container box justify-content-center">
+  <div class="d-flex justify-content-end ">
+    <button class="btn btn-primary float-right" mat-raised-button (click)="openDialog(); sendQuestionBnakID()">Create Question</button>
+  </div>
+  <div *ngFor="let column of questions[0]; let in = index">
+<div class="card d-flex justify-content-center " *ngIf="questions[0][in].QuestionType =='mcq'">
+  <div class="card-header" *ngIf="questions[0][in].QuestionType =='mcq'">
+<br>
+  </div>
+  <div class="card-body " *ngIf="questions[0][in].QuestionType =='mcq'">
+    <h2 class="card-title mb-4"> {{questions[0][in].QuestionTitle}}</h2>
+    <div class="form-check form-check-inline mb-3" >
+     <div> <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" disabled="true"></div>
+      <label class="form-check-label" for=""> 1. {{questions[0][in].Option_1}}</label>
+    </div>
+    <br>
+    <div class="form-check form-check-inline mb-3">
+      <div> <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2" disabled></div>
+      <label class="form-check-label fontTtitle" for="">2. {{questions[0][in].Option_2}}</label>
+    </div>
+    <br>
+    <div>
+      <div class="form-check form-check-inline mb-3" *ngIf="questions[0][in].Option_3!=null">
+        <div>  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option3" disabled></div>
+        <label class="form-check-label" for="">3. {{questions[0][in].Option_3}}</label>
+      </div>
+      <br>
+      <div class="form-check form-check-inline mb-3" *ngIf="questions[0][in].Option_4!=null">
+        <div> <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Option_4" disabled></div>
+        <label class="form-check-label" for="">4. {{questions[0][in].Option_4}}</label>
+      </div>
+      <br>
+      <div class="form-check form-check-inline mb-3" *ngIf="questions[0][in].Option_5!=null">
+        <div>  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"  value="Option_5" disabled></div>
+        <label class="form-check-label" for="">5. {{questions[0][in].Option_5}}</label>
+      </div>
+      <br>
+      <div class="form-check form-check-inline mb-3" *ngIf="questions[0][in].Option_6!=null ">
+        <div>  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Option_6" disabled></div>
+        <label class="form-check-label" for="">6. {{questions[0][in].Option_6}}</label>
+      </div>
+     
+      <div class="form-check form-check-inline mb-3 ">
+      
+        <label class="form-check-label" id="correct" for="inlineRadio1">Correct Answer : {{questions[0][in].CorrectAnswer}}</label>
+      </div>
+      <hr>
+    </div>
+    <div class="d-flex justify-content-end">
+      
+      <a  class="btn btn-primary btn-lg" (click)=" questionID(questions[0][in].Question_ID); openEditChooseDialog()">Edit</a>
+      &nbsp;
+      &nbsp;
+      <a  class="btn btn-danger btn-lg" (click)="deleteQuestion(questions[0][in].Question_ID)">Delete</a>
+    </div>
+  </div>
+  
+</div>
+<div class="card d-flex justify-content-center " *ngIf="questions[0][in].QuestionType =='essay'">
+
+<div class="card-body " *ngIf="questions[0][in].QuestionType =='essay'">
+  <h2 class="card-title "> {{questions[0][in].QuestionTitle}}</h2>
+  <div>
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">Correct Answer : </label>
+      <label class="form-check-label">{{questions[0][in].CorrectAnswer}}</label>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end">
+    
+    <a  class="btn btn-primary" >Edit</a>
+    &nbsp;
+    &nbsp;
+    <a  class="btn btn-danger" (click)="deleteQuestion(questions[0][in].Question_ID)">Delete</a>
+  </div>
+</div>
+</div>
+<div class="card d-flex justify-content-center " *ngIf="questions[0][in].QuestionType =='true or false'">
+
+<div class="card-body " *ngIf="questions[0][in].QuestionType =='true or false'">
+  <h2 class="card-title "> {{questions[0][in].QuestionTitle}}</h2>
+  <div>
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">Correct Answer : </label>
+      <label class="form-check-label">{{questions[0][in].CorrectAnswer}}</label>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end">
+    
+    <a  class="btn btn-primary" (click)="questionID(questions[0][in].Question_ID);openEditTFDialog()" >Edit</a>
+    &nbsp;
+    &nbsp;
+    <a  class="btn btn-danger" (click)="deleteQuestion(questions[0][in].Question_ID)">Delete</a>
+  </div>
+</div>
+</div>
+</div>
+<!-- <div class="card d-flex justify-content-center " *ngFor="let column of questions[0]; let in = index">
+  <div class="card-header" *ngIf="questions[0][in].QuestionType =='true or false'">
+    Question ID : {{questions[0][in].Question_ID}}
+  </div>
+  <div class="card-body " *ngIf="questions[0][in].QuestionType =='true or false'">
+    <h2 class="card-title "> {{questions[0][in].QuestionTitle}}</h2>
+    <div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">Correct Answer : </label>
+        <label class="form-check-label">{{questions[0][in].CorrectAnswer}}</label>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      
+      <a  class="btn btn-primary" >Edit</a>
+      &nbsp;
+      &nbsp;
+      <a  class="btn btn-danger" (click)="deleteQuestion(questions[0][in].Question_ID)">Delete</a>
+    </div>
+  </div>
+  
+</div> -->
+<!-- <div class="card d-flex justify-content-center " *ngFor="let column of questions[0]; let in = index">
+  <div class="card-header" *ngIf="questions[0][in].QuestionType =='essay'">
+    Question ID : {{questions[0][in].Question_ID}}
+  </div>
+  <div class="card-body " *ngIf="questions[0][in].QuestionType =='essay'">
+    <h2 class="card-title "> {{questions[0][in].QuestionTitle}}</h2>
+    <div>
+      <div class="form-check form-check-inline">
+        <label class="form-check-label">Correct Answer : </label>
+        <label class="form-check-label">{{questions[0][in].CorrectAnswer}}</label>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      
+      <a  class="btn btn-primary" >Edit</a>
+      &nbsp;
+      &nbsp;
+      <a  class="btn btn-danger" (click)="deleteQuestion(questions[0][in].Question_ID)">Delete</a>
+    </div>
+  </div>
+  
+</div> -->
+</div>
+
+
+
+

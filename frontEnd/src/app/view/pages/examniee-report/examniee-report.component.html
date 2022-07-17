@@ -1,0 +1,60 @@
+<div class="card d-flex justify-content-center " >
+<section class=" body vh-100 p-5 " >
+    <div class="container ">
+        <blockquote class="blockquote">
+            <h1 style="text-align: center;">Reports</h1>
+          </blockquote>
+          <br>
+
+    
+    <br>
+    <br>
+   
+      <div class=" table-responsive">
+  
+        <table class="table table-striped custom-table">
+          <thead style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+          letter-spacing: normal;
+          margin: 0 0 16px;">
+            <tr style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+            letter-spacing: normal;
+            margin: 0 0 16px;">
+            
+                <th scope="col">Exam name</th>
+            
+                <th scope="col">Exam grade</th>
+                <th scope="col">Number of questions</th>
+                <th scope="col">Number of correct answers </th>
+                <th scope="col">Number of wrong answers </th>
+                <th scope="col">Your grade </th>
+                <th scope="col">Preview </th>
+             </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let hero of desdata">
+                <td>
+                  {{hero.exam_name}}
+                </td>
+                
+                <td>
+                    {{hero.exam_grade}}
+                </td>
+                <td>
+                    {{hero.total_exam_questions}}
+              </td>
+              <td>
+                {{hero.total_correct_answers}}
+          </td>
+          <td>
+            {{hero.total_wrong_answers}}
+      </td><td>
+        {{hero.examinee_total_grade}}
+      </td>
+      <td>  <a class="btn btn-dark" [routerLink]="['/dash-preview-exam-examniee',hero.exam_ID]">Preview</a></td>
+              </tr>
+          </tbody>
+          </table>
+        </div>
+    </div>
+   </section>
+</div>

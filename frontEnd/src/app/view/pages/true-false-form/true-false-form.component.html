@@ -1,0 +1,44 @@
+<form [formGroup]="trueFalseForm" (ngSubmit)="createTrueFalse()">
+    <div class="form-outline mb-4 p-2">
+        <label class="form-label px-1" >Question Type</label> 
+        <select  formControlName="questionType"  [(ngModel)]="defaultValue">
+            <option value="mcq" >MCQ</option>
+            <option value="true or false" selected>TRUE OR FALSE</option>
+            <option value="essay">ESSAY</option>
+          </select>
+    </div>
+    <div class="form-outline mb-4 p-2">
+        <div class="form-outline mb-4 p-1 mt-3 ">
+            <label class="form-label" for="difficulty">Question Difficulty</label>
+            <select name="difficulty" id="difficulty" formControlName="questionDifficulty">
+                <option value="EASY">EASY</option>
+                <option value="MODERATE">MODERATE</option>
+                <option value="HARD">HARD</option>
+            </select>
+        </div>
+        <div class="form-outline mb-4">
+            <label class="form-label">Question Title</label>
+            <input type="text" id="Title" class="form-control form-control-lg" formControlName="questionTitle"
+                required />
+
+        </div>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example4cdg">Question Weight</label>
+            <input type="text" id="weight" class="form-control form-control-lg" required
+                formControlName="questionWeight" />
+        </div>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="option1">Option1</label>
+            <input type="text" id="option1" class="form-control form-control-lg" formControlName="Answer_1" required />
+        </div>
+        <div class="mt-3">
+            <label class="form-label" for="option1">Correct Answer</label>
+            <select name="answer" id="answer" formControlName="correctAnswer">
+                <option value="TRUE">TRUE</option>
+                <option value="FALSE">FALSE</option>
+
+            </select>
+        </div>
+        <button class="btn btn-primary btn-lg text-light btn-block" type="submit">SAVE</button>
+    </div>
+</form>

@@ -1,0 +1,80 @@
+<form [formGroup]="questionForm">
+  <div class="form-outline mb-4 p-2">
+      <label class="form-label px-1" >Question Type</label> 
+      <select  class="mx-3" formControlName="questionType" [(ngModel)]="defaultValue">
+          <option value="mcq" selected>MCQ</option>
+          <option value="truefalse">TRUE OR FALSE</option>
+          <option value="essay">ESSAY</option>
+        </select>
+  </div>
+<div class="form-outline mb-4 p-1 mt-3 ">
+  <label class="form-label" for="difficulty" >Question Difficulty</label>
+  <select  id="difficulty" class="mx-3" formControlName="questionDifficulty">
+      <option value="EASY">EASY</option>
+      <option value="MODERATE">MODERATE</option>
+      <option value="HARD">HARD</option>
+    </select>
+</div>
+<div class="form-outline mb-4">
+  <label class="form-label"  >Question Title</label>
+    <input type="text" id="Title" class="form-control form-control-lg" formControlName="questionTitle"   required />
+    
+</div>
+<div class="form-outline mb-4">
+  <label class="form-label" for="form3Example4cdg">Question Weight</label>
+<input type="text" id="weight" class="form-control form-control-lg"  required formControlName="questionWeight"/>
+</div>
+
+
+
+
+
+<div formArrayName="answers" class="form-outline mb-4 my-3">
+<ng-container *ngFor="let answer of refForm.controls;index as i" id="answer_"+i class="form-outline mb-4">
+  <label class="form-label my-3" for="option1">Option{{i+1}}</label>
+  
+  <input type="text" id="option2" class="form-control form-control-lg"   formControlName="{{i}}" required />
+  
+</ng-container>
+<div class="float-right" > <button (click)="addOpition();" class="btn-success my-3 mx-3 rounded-pill float-right"> Add option</button>
+ <button (click)="removeOpition();" class="btn-danger my-3 float-right rounded-pill mx-3">Remove option</button></div>
+</div>
+
+ <div class="form-outline mb-4">
+<label class="form-label" for="option1">Correct Answer</label>
+ <select class="mx-3" formControlName="correctAnswer"  *ngIf="i==0">
+          <option value="{{questionForm.get('answers').value.at(0)}}" selected>Option1</option>
+          <option value="{{questionForm.get('answers').value.at(1)}}"> Option2</option>
+
+        </select>
+        
+        <select class="mx-3" formControlName="correctAnswer"  *ngIf="i==1">
+                 <option value="{{questionForm.get('answers').value.at(0)}}" selected>Option1</option>
+                 <option value="{{questionForm.get('answers').value.at(1)}}"> Option2</option>
+                 <option value="{{questionForm.get('answers').value.at(2)}}"> Option3</option>
+               </select>
+               <select class="mx-3" formControlName="correctAnswer"  *ngIf="i==2">
+                <option value="{{questionForm.get('answers').value.at(0)}}" selected>Option1</option>
+                <option value="{{questionForm.get('answers').value.at(1)}}"> Option2</option>
+                <option value="{{questionForm.get('answers').value.at(2)}}"> Option3</option>
+                <option value="{{questionForm.get('answers').value.at(3)}}"> Option4</option>
+              </select>
+
+              <select class="mx-3" formControlName="correctAnswer"*ngIf="i==3">
+                <option value="{{questionForm.get('answers').value.at(0)}}" selected>Option1</option>
+                <option value="{{questionForm.get('answers').value.at(1)}}"> Option2</option>
+                <option value="{{questionForm.get('answers').value.at(2)}}"> Option3</option>
+                <option value="{{questionForm.get('answers').value.at(3)}}"> Option4</option>
+                <option value="{{questionForm.get('answers').value.at(4)}}"> Option5</option>
+              </select>
+              <select class="mx-3" formControlName="correctAnswer" *ngIf="i==4">
+                <option value="{{questionForm.get('answers').value.at(0)}}" selected>Option1</option>
+                <option value="{{questionForm.get('answers').value.at(1)}}"> Option2</option>
+                <option value="{{questionForm.get('answers').value.at(2)}}"> Option3</option>
+                <option value="{{questionForm.get('answers').value.at(3)}}" >Option4</option>
+                <option value="{{questionForm.get('answers').value.at(4)}}"> Option5</option>
+                <option value="{{questionForm.get('answers').value.at(5)}}"> Option6</option>
+              </select>
+</div>
+<button class="btn btn-primary  m-3" type="submit"  (click)="createQuestions();" >CREATE</button>
+</form>

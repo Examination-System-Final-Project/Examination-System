@@ -1,0 +1,14 @@
+<div class=" d-flex justify-content-end">
+    <button class=" btn-dialog-close " mat-stroked-button (click)="onClose()">X</button>
+    </div>
+    <mat-tab-group>
+        <mat-tab label="MCQ">
+          <app-mcq-form></app-mcq-form>
+        </mat-tab>
+        <mat-tab label="TF">
+            <app-true-false-form> </app-true-false-form>
+          </mat-tab>
+          <mat-tab label="ESSAY">
+            <app-essay-form> </app-essay-form>
+          </mat-tab>
+    </mat-tab-group>

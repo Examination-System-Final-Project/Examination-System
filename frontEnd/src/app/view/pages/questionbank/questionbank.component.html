@@ -1,0 +1,110 @@
+<section class=" body vh-100 p-5 " >
+  <div class="container ">
+      <blockquote class="blockquote">
+          <h1 style="text-align: center;">Question Banks</h1>
+        </blockquote>
+        <br>
+        
+       <!-- <div class=" d-flex ">
+         <div class="p-2">
+         <input  class="Search " placeholder="Search..." type="text">
+        </div>
+        <div class="p-2">
+        <button type="button" class=" btn-primary p-2">Search</button>
+      </div>
+        <div class="ml-auto p-2">
+          <button type="button" class=" btn-success " (click)="open(content)"
+          >Create New Question bank</button>
+        </div>
+         
+      </div> -->
+  
+  <br>
+  <br>
+  <!-- <table class="table" >
+      <thead>
+        <tr>
+          
+          <th scope="col">Name</th>
+          <th scope="col">Number of questions </th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hero of desdata">
+          <td>
+            {{hero.QuestionBankName}}
+          </td>
+          <td>
+            {{hero.NumberOfQuestions}}
+          </td>
+          <td class="box"><button (click)="deleteQuestionBank(hero.QuestionBank_ID)"class="btn btn-outline-danger">
+            Delete
+          </button>
+           <a class="btn btn-outline-dark" [routerLink]="['/dashpreviewQuestionBank',hero.QuestionBank_ID]">Edit and Preview</a>
+        </td>
+        </tr>
+      </tbody>
+    </table> -->
+    <div class=" table-responsive">
+
+      <table class="table table-striped custom-table">
+        <thead style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+        letter-spacing: normal;
+        margin: 0 0 16px;">
+          <tr style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+          letter-spacing: normal;
+          margin: 0 0 16px;">
+          
+              <th scope="col">Name</th>
+              <th scope="col">Number of questions </th>
+              <th scope="col">Actions</th>
+              <th>
+                  <div class="ml-4"> <button type="button" class="btn btn-secondary " (click)="open(content)"
+                    >Create New Question bank</button></div></th>
+           </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hero of desdata">
+              <td>
+                {{hero.QuestionBankName}}
+              </td>
+              <td>
+                {{hero.NumberOfQuestions}}
+              </td>
+              <td ><button (click)="deleteQuestionBank(hero.QuestionBank_ID)"class="btn btn-danger">
+                Delete
+              </button>
+              </td>
+              <td>
+               <a class="btn btn-dark" [routerLink]="['/dashpreviewQuestionBank',hero.QuestionBank_ID]">Edit and Preview</a>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+      </div>
+  </div>
+ </section>
+ <ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Question Bank</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="createQuestionBank()" >
+      <div class="form-group">
+        <label for="firstname">Question Bank Name </label>
+        <div class="input-group">
+          <input formControlName="QuestionBankName" class="form-control" >
+        </div>
+        <div class="input-group modal-footer">
+          <button class="btn btn-primary btn-lg text-light btn-block" type="submit" (click)="modal.dismiss('Cross click')">Create</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+  </div>
+</ng-template>

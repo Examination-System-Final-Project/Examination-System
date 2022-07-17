@@ -1,0 +1,9 @@
+<div class=" d-flex justify-content-end">
+    <button class=" btn-dialog-close " mat-stroked-button (click)="onClose()">X</button>
+    </div>
+<h2 mat-dialog-title>Submitting Exam Answers</h2>
+<mat-dialog-content>Are you sure you want to submit your answers?</mat-dialog-content>
+<mat-dialog-actions class="box">
+    <button class="p-2" mat-button mat-dialog-close mat-dialog-close-="true" (click)="navigate()" >Yes</button>
+    <button class="p-2" mat-button mat-dialog-close mat-dialog-close="false">No</button>
+</mat-dialog-actions>

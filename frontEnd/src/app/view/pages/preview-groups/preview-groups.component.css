@@ -1,0 +1,12 @@
+body{
+    background-color: #ECECEC;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+    justify-content: center;
+}
+.fontTitle{
+    font-size: x-large;
+}

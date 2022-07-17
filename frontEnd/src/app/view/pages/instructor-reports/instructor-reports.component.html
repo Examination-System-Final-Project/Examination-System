@@ -1,0 +1,60 @@
+
+  <section class="p-5 " >
+    <div class="container ">
+        <blockquote class="blockquote">
+            <h1 style="text-align: center;">Reports</h1>
+          </blockquote>
+          <br>
+         
+      <div class=" table-responsive">
+  
+        <table class="table table-striped custom-table">
+          <thead style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+          letter-spacing: normal;
+          margin: 0 0 16px;">
+            <tr style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+            letter-spacing: normal;
+            margin: 0 0 16px;">
+            
+            <th scope="col">Exam name</th>
+                
+            <th scope="col">Description</th>
+            <th scope="col">Number of questions</th>
+            <th scope="col">Exam grade</th>
+            <th scope="col">Number of attempts allowed </th>
+            <th scope="col">Number of examinees examined </th>
+          <th scope="col">Preview</th>
+           
+              
+             </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let hero of desdata">
+                <td>
+                  {{hero.ExamName}}
+                </td>
+                
+                <td>
+                    {{hero.Description}}
+                </td>
+                <td>
+                    {{hero.numberOfQuestions}}
+              </td>
+                <td>
+                    {{hero.grade}}
+              </td>
+              <td>
+                {{hero.Number_Of_Attempts_Allowed}}
+          </td>
+          <td>
+        {{hero.numberOfExamineesExamined}}
+      </td>
+      <td>  <a class="btn btn-dark" [routerLink]="['/dash-instructor-preview-exam-report',hero.Exam_ID]">Preview</a></td>
+              </tr>
+          </tbody>
+          </table>
+        </div>
+    </div>
+  </section>
+  
+  

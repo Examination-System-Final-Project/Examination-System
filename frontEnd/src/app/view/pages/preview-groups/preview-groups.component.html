@@ -1,0 +1,39 @@
+<div class="container box justify-content-center">
+    <div class="d-flex justify-content-end ">
+        <button class="btn btn-primary float-right" mat-raised-button  (click)="openDialog();sendid()">add students</button>
+    </div>
+    <table class="table" >
+        <thead>
+          <tr>
+            
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Examinee id </th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bassem of students" >
+            <td>
+              {{bassem.FirstName}}
+            </td>
+            <td>
+                {{bassem.LastName}}
+            </td>
+            <td>
+                {{bassem.Examinee_ID}}
+            </td>
+            <td class="box"><button class="btn btn-outline-danger" (click) = "removeExamineeFromGroup(bassem.Examinee_ID)">
+              Delete
+            </button>
+            
+          </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  
+  
+  
+  

@@ -1,0 +1,48 @@
+
+
+            <fieldset>
+              <h2 class="fs-title">Assign questions from question banks</h2>
+              <label class="form-label px-1" >choose question bank</label> 
+              <select   #optionValue (change)="lol($event)">
+                  <option  *ngFor="let hero of desdata"  [value]=" hero.QuestionBank_ID" >{{hero.QuestionBankName}}</option>
+                </select>
+         
+
+
+              <table class="table table-striped">
+                <thead>
+                  <tr >
+                    <th scope="col">Add question</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">type</th>
+                   
+                    <th scope="col">difficulty</th>
+                    <th scope="col">Grade</th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+                
+                  <tr  *ngFor="let question of questions;let i = index" id="{{question.Question_ID}}">
+
+                   
+                    <th scope="row">
+                      <button class="btn-primary"  (click)="addQuestionToExam(question.Question_ID);toggleHide(question.Question_ID)">add</button>
+                     </th>
+                    <td>{{question.QuestionTitle}}</td>
+                    <td >{{question.QuestionType}}</td>
+                    <td >{{question.QuestionDifficulty}} </td>
+                    <td >
+                      <form [formGroup]="grade">
+                    <input type="number" formControlName="questionGrade" class="form-control-sm" min="1">
+                    </form>
+                    
+                    </td>
+                 
+                  </tr>
+        
+                </tbody>
+              </table>
+         
+          </fieldset>
+     

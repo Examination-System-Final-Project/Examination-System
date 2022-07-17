@@ -1,0 +1,141 @@
+<div class=" d-flex justify-content-end">
+  <button class=" btn-dialog-close " mat-stroked-button (click)="onClose()">X</button>
+  </div>
+<form [formGroup]="editForm" (ngSubmit)="editQuestion()">
+<div class="form-outline mb-4 p-1 mt-3 ">
+    <label class="form-label" for="difficulty" >Question Difficulty</label>
+    <select  id="difficulty" formControlName="questionDifficulty">
+        <option value="EASY">EASY</option>
+        <option value="MODERATE">MODERATE</option>
+        <option value="HARD">HARD</option>
+      </select>
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label"  >Question Title</label>
+      <input type="text"  class="form-control form-control-lg" formControlName="questionTitle"   required />
+      
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form3Example4cdg">Question Weight</label>
+  <input type="text" id="weight" class="form-control form-control-lg"  required formControlName="questionWeight"/>
+</div>
+<div *ngIf="number==2">
+<div class="form-outline mb-4">
+<label class="form-label" for="option1">Option1</label>
+<input type="text" id="option1" class="form-control form-control-lg" formControlName="Answer_1"   required />
+
+</div>
+<div class="form-outline mb-4">
+<label class="form-label" for="option1">Option2</label>
+<input type="text" id="option2" class="form-control form-control-lg" formControlName="Answer_2"   required />
+
+</div>
+</div>
+<div *ngIf="number==3">
+  <div class="form-outline mb-4">
+  <label class="form-label" for="option1">Option1</label>
+  <input type="text" id="option1" class="form-control form-control-lg" formControlName="Answer_1"   required />
+  
+  </div>
+  <div class="form-outline mb-4">
+  <label class="form-label" for="option1">Option2</label>
+  <input type="text" id="option2" class="form-control form-control-lg" formControlName="Answer_2"   required />
+  
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="option1">Option3</label>
+    <input type="text" id="option3" class="form-control form-control-lg" formControlName="Answer_3"   required />
+    
+    </div> 
+  </div>
+
+  <div *ngIf="number==4">
+    <div class="form-outline mb-4">
+    <label class="form-label" for="option1">Option1</label>
+    <input type="text" id="option1" class="form-control form-control-lg" formControlName="Answer_1"   required />
+    
+    </div>
+    <div class="form-outline mb-4">
+    <label class="form-label" for="option1">Option2</label>
+    <input type="text" id="option2" class="form-control form-control-lg" formControlName="Answer_2"   required />
+    
+    </div>
+    <div class="form-outline mb-4">
+      <label class="form-label" for="option1">Option3</label>
+      <input type="text" id="option3" class="form-control form-control-lg" formControlName="Answer_3"   required />
+      
+      </div> 
+      <div class="form-outline mb-4">
+        <label class="form-label" for="option1">Option4</label>
+        <input type="text" id="option3" class="form-control form-control-lg" formControlName="Answer_4"   required />
+        
+        </div>
+    </div>
+    <div *ngIf="number==5">
+      <div class="form-outline mb-4">
+      <label class="form-label" for="option1">Option1</label>
+      <input type="text" id="option1" class="form-control form-control-lg" formControlName="Answer_1"   required />
+      
+      </div>
+      <div class="form-outline mb-4">
+      <label class="form-label" for="option1">Option2</label>
+      <input type="text" id="option2" class="form-control form-control-lg" formControlName="Answer_2"   required />
+      
+      </div>
+      <div class="form-outline mb-4">
+        <label class="form-label" for="option1">Option3</label>
+        <input type="text" id="option3" class="form-control form-control-lg" formControlName="Answer_3"   required />
+        
+        </div> 
+        <div class="form-outline mb-4">
+          <label class="form-label" for="option1">Option4</label>
+          <input type="text" id="option3" class="form-control form-control-lg" formControlName="Answer_4"   required />
+          
+          </div>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="option1">Option5</label>
+            <input type="text" id="option3" class="form-control form-control-lg" formControlName="Answer_5"   required />
+            
+            </div>
+      </div>
+  
+      <div *ngIf="number==6">
+        <div class="form-outline mb-4">
+        <label class="form-label" for="option1">Option1</label>
+        <input type="text" id="option1" class="form-control form-control-lg" formControlName="Answer_1"   required />
+        
+        </div>
+        <div class="form-outline mb-4">
+        <label class="form-label" for="option1">Option2</label>
+        <input type="text" id="option2" class="form-control form-control-lg" formControlName="Answer_2"   required />
+        
+        </div>
+        <div class="form-outline mb-4">
+          <label class="form-label" for="option1">Option3</label>
+          <input type="text" id="option3" class="form-control form-control-lg" formControlName="Answer_3"   required />
+          
+          </div> 
+          <div class="form-outline mb-4">
+            <label class="form-label" for="option1">Option4</label>
+            <input type="text" id="option3" class="form-control form-control-lg" formControlName="Answer_4"   required />
+            
+            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="option1">Option5</label>
+              <input type="text" id="option3" class="form-control form-control-lg" formControlName="Answer_5"   required />
+              
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="option1">Option6</label>
+                <input type="text" id="option3" class="form-control form-control-lg" formControlName="Answer_6"   required />
+                
+                </div>
+        </div>
+ 
+<div class="form-outline mb-4">
+<label class="form-label" for="option1">Correct Answer</label>
+<input type="text" id="CorrectAnswer" class="form-control form-control-lg" formControlName="correctAnswer"   required />
+
+</div>
+<button class="btn btn-primary  m-3" type="submit">CREATE</button>
+</form>

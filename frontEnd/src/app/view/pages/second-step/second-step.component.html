@@ -1,0 +1,99 @@
+<form [formGroup]="AutoCreation">
+    <section class="p-5 " >
+        <div class="container ">
+            <blockquote class="blockquote">
+                <h1 style="text-align: center;">Auto Generation</h1>
+                
+              </blockquote>
+              <br>
+              <div class="d-flex">
+              
+              
+                <div class="col-7"></div>
+             
+          
+              </div>
+             <!-- <div class=" d-flex ">
+               <div class="p-2">
+               <input  class="Search " placeholder="Search..." type="text">
+              </div>
+              <div class="p-2">
+              <button type="button" class=" btn-primary p-2">Search</button>
+            </div>
+              <div class="ml-auto p-2">
+                <button type="button" class=" btn-success " (click)="open(content)"
+                >Create New Question bank</button>
+              </div>
+               
+            </div> -->
+        
+        <br>
+        <br>
+        <table class="table" >
+            <thead>
+              <tr>
+               
+                <th scope="col">Question bank</th>
+              
+                <th scope="col">Number of questions needed</th>
+                <th scope="col">MCQ</th>
+                <th scope="col">ESSAY</th>
+                <th scope="col">TRUE OR FALSE</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let id of getIds.controls;index as i;let num of Getnums.controls;let g of getmcq.controls;let h of getessay.controls;let j of gettf.controls;">
+                <td>
+              <div formArrayName="QuestionBankIds">
+                <ng-container  class="form-outline mb-4">
+                  <tr>
+                  <select  formControlName="{{i}}" (change)="lol($event)">
+                      <option  *ngFor="let hero of desdata"  [value]="hero.QuestionBank_ID"  >{{hero.QuestionBankName}}:# of question( {{hero.NumberOfQuestions}}) </option>
+                    </select>
+                  </tr> 
+                  </ng-container>
+                </div>
+              </td>
+              <td>
+                <div formArrayName="NumberOfQuestions">
+                  <ng-container class="form-outline mb-4">
+                    <input type="number" id="option2" class="form-control form-control-lg" min="0"   formControlName="{{i}}" required /> 
+                
+                  </ng-container>
+                </div>
+              </td>
+              <td>
+                <div formArrayName="mcq">
+                  <ng-container class="form-outline mb-4">
+                    <input type="number" id="option2" class="form-control form-control-lg"    formControlName="{{i}}" required /> 
+                
+                  </ng-container>
+                </div>
+              </td>
+              <td>
+                <div formArrayName="essay">
+                  <ng-container class="form-outline mb-4">
+                   <input type="number" id="option2" class="form-control form-control-lg" min="0"   formControlName="{{i}}" required /> 
+                
+                  </ng-container>
+                </div>
+              </td>
+              <td>
+                <div formArrayName="tf">
+                  <ng-container class="form-outline mb-4">
+                    <input type="number" id="option2" class="form-control form-control-lg" min="0"  formControlName="{{i}}" required />  
+                
+                  </ng-container>
+                </div>
+              </td>
+              </tr>
+       
+            </tbody>
+          </table>
+          <div class="float-right" > <button (click)="addIDOpition()" class="btn-success my-3 mx-3 rounded-pill float-right"> Add option</button>
+            <button (click)="removeBank()" class="btn-danger my-3 float-right rounded-pill mx-3">Remove option</button></div>
+        </div>
+        <button  class="btn btn-primary" style="float: right;"(click)="test()">Submit</button>
+       </section>
+      </form>

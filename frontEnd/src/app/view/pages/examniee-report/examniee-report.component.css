@@ -1,0 +1,48 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
+
+.head {
+font-size: 40px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+th,td {
+color: black;
+font-size:20px;
+}
+/* .search{
+width: 50px;
+height: 100px;
+} */
+/* .searching {
+display: inline-block;
+} */
+.searchbtn {
+height:30px;
+margin-left: 5px;
+
+}
+.box{
+        display: flex;
+        flex-direction: row;
+        column-gap: 1.5em;
+    }
+/* .createbank {
+ 
+        position: relative;
+        left: 790px;
+   
+} */
+.box{
+        display: flex;
+        flex-direction: row;
+        column-gap: 1.5em;
+    }
+    #lol{
+        background-color:  #ECECEC;
+    }
+    .btn-secondary {
+        color: #fff;
+        background-color: #6c757d;
+        border-color: #6c757d;
+        margin-left: 40%;
+    }
+   

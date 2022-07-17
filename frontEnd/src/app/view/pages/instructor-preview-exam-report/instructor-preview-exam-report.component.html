@@ -1,0 +1,61 @@
+
+
+  <section class="p-5 " >
+    <div class="container ">
+        <blockquote class="blockquote">
+            <h1 style="text-align: center;">Reports</h1>
+          </blockquote>
+          <br>
+         
+      <div class=" table-responsive">
+  
+        <table class="table table-striped custom-table">
+          <thead style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+          letter-spacing: normal;
+          margin: 0 0 16px;">
+            <tr style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+            letter-spacing: normal;
+            margin: 0 0 16px;">
+            
+            <th scope="col">Examinee ID</th>
+                
+            <th scope="col">Examinee name</th>
+            <th scope="col">Examinee grade</th>
+            <th scope="col">Total exam questions</th>
+            <th scope="col">Total correct answers</th>
+            <th scope="col">Total wrong answers </th>
+       
+           
+              
+             </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let hero of desdata">
+                <td>
+                  {{hero.examinee_ID}}
+                </td>
+                
+                <td>
+                    {{hero.examinee_name}}
+                </td>
+                <td>
+                    {{hero.examinee_grade}} / {{hero.exam_grade}}
+              </td>
+                <td>
+                    {{hero.total_exam_questions}}
+              </td>
+              <td>
+                {{hero.total_correct_answers}}
+          </td>
+          <td>
+        {{hero.total_wrong_answers}}
+      </td>
+     
+              </tr>
+          </tbody>
+          </table>
+        </div>
+    </div>
+  </section>
+  
+  

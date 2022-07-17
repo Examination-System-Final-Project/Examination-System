@@ -1,0 +1,106 @@
+<section class="p-5 " >
+  <div class="container ">
+      <blockquote class="blockquote">
+          <h1 style="text-align: center;">Exams</h1>
+        </blockquote>
+        <br>
+        <!-- <div class="d-flex justify-content-end">
+        
+          <div class="ml-auto p-2">  <a class="btn btn-outline-dark" [routerLink]="['/dashboardExams']">Create new exam</a></div> -->
+         
+       
+
+  
+  <br>
+  <br>
+  <!-- <table class="table" >
+      <thead>
+        <tr>
+          
+          <th scope="col">Exam Name</th>
+          <th scope="col">Duration </th>
+          <th scope="col">Start Time</th>
+          <th scope="col">End Time</th>
+         <th scope="col">Description</th>  
+         <th scope="col">Actions</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hero of desdata">
+          <td>
+              {{hero.ExamName}}
+          </td>
+          <td>
+          {{hero.Duration}}
+          </td>
+          <td>
+              {{hero.StartTime}}
+              </td>
+              <td>
+                  {{hero.EndTime}}
+                  </td>
+                  <td>
+                      {{hero.Description}}
+                      </td>
+                 
+          <td class="box"><button class="btn btn-outline-danger" (click)="deleteExam(hero.Exam_ID)">
+            Delete
+          </button>
+          <button class="btn btn-outline-primary" (click)="openDialog();sendID(hero.Exam_ID)">
+            Edit 
+          </button>
+           <td><button type="button" class="btn btn-outline-dark" [routerLink]="['/dashboard-edit-exam-questions',hero.Exam_ID]">Preview</button></td>
+        </tr>
+      </tbody>
+    </table> -->
+    <div class=" table-responsive">
+
+      <table class="table table-striped custom-table">
+        <thead style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+        letter-spacing: normal;
+        margin: 0 0 16px;">
+          <tr style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+          letter-spacing: normal;
+          margin: 0 0 16px;">
+          
+          <th scope="col">Exam Name</th>
+          <th scope="col">Duration </th>
+          <th scope="col">Start Time</th>
+          <th scope="col">End Time</th>
+         <th scope="col">Description</th>  
+         <th scope="col">Actions</th> 
+         <th>  <div> <a class="btn btn-secondary" [routerLink]="['/dashboardExams']" style="width:107%; height : auto;">Create new exam</a></div></th>
+            
+           </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hero of desdata">
+            <td>
+                {{hero.ExamName}}
+            </td>
+            <td>
+            {{hero.Duration}}
+            </td>
+            <td>
+                {{hero.StartTime}}
+                </td>
+                <td>
+                    {{hero.EndTime}}
+                    </td>
+                    <td>
+                        {{hero.Description}}
+                        </td>
+                        <td class="box"><button class="btn btn-danger" (click)="deleteExam(hero.Exam_ID)">
+                          Delete
+                        </button>
+                        <button class="btn btn-dark" (click)="openDialog();sendID(hero.Exam_ID)">
+                          Edit 
+                        </button>
+                         <td><button type="button" class="btn btn-dark" [routerLink]="['/dashboard-edit-exam-questions',hero.Exam_ID]">Preview</button></td>
+                      </tr>
+        </tbody>
+        </table>
+      </div>
+  </div>
+</section>
+

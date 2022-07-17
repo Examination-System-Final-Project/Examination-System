@@ -1,0 +1,27 @@
+.carousel-item{
+    height: 27rem;
+    background-color: black;
+    color: white;
+    position: relative;
+}
+.container{
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+}
+.overlay-image{
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.7;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    column-gap: 2em;
+}

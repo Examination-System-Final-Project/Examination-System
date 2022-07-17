@@ -1,0 +1,61 @@
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="Dashboard" id="sidebar-wrapper" *ngIf="showMe">
+      <div class="sidebar-heading container py-4 primary-text fs-4 fw-bold  border-bottom"><i
+          class="fas fa-user-secret me-2"></i>Instructor</div>
+      <div class="list-group list-group-flush my-3">
+        <a routerLink="/instructorDashboard"
+          class="list-group-item list-group-item-action bg-transparent second-text fw-bold  "><i
+            class="fa-solid fa-house me-2"></i>Home</a>
+  
+            <a routerLink="/dashboardQuestionbank" class="list-group-item list-group-item-action bg-transparent second-text fw-bold  ">
+          <i class="fa-solid fa-building-columns me-2"></i> Question Banks </a>
+  
+        <a routerLink="/dashboard-exam-list"
+          class="list-group-item list-group-item-action bg-transparent second-text fw-bold "><i
+            class="fa-solid fa-paste"></i> Exams </a>
+            <a routerLink="/instructorReports"
+            class="list-group-item list-group-item-action bg-transparent second-text fw-bold " ><i
+              class="fa-solid fa-paste me-2"></i> Reports </a>
+              <a routerLink="/dashboardGroups"
+              class="list-group-item list-group-item-action bg-transparent second-text fw-bold active "><i
+                class="fa-solid fa-people-group me-2"></i> Groups </a>
+    
+        
+       
+      <a routerLink="/" (click)="logoutInstructor()" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+        class="fas fa-power-off me-2"></i>Logout</a> 
+                
+      </div>
+  
+    </div>
+    <!-- /#sidebar-wrapper -->
+  
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-bars primary-text fs-4 me-3" (click)="toggle()">
+          </i>
+          <!-- <i class="fa-solid fa-bars"></i> -->
+  
+        </div>
+  
+        
+  
+       
+      </nav>
+
+      <div class="container-fluid px-4">
+        <div class="row  my-2 ">
+          <div class="container rounded bg-white mt-5 mb-5">
+            <div class="row  d-flex justify-content-center"style="background-color:#ECECEC;">
+           
+              <app-preview-groups></app-preview-groups>
+              
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,216 @@
+<!-- <div class="container mt-sm-5 my-1 ">
+  <div>
+    <span> Question {{currentQuestion+1}} of {{examLength}}</span>
+  </div>
+  <div class="question ml-sm-5 pl-sm-5 pt-2">
+      <div class="py-2 h5"><b>{{examQuestions.examQuestion[currentQuestion].QuestionTitle}}</b></div>
+      <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" *ngIf="examQuestions.examQuestion[currentQuestion].QuestionType=='true or false'">
+          <label class="options">{{examQuestions.examQuestion[currentQuestion].Option_1}}
+              <input type="radio" name="radio">
+              <span class="checkmark"></span>
+          </label>
+          <label class="options">{{examQuestions.examQuestion[currentQuestion].CorrectAnswer}}
+              <input type="radio" name="radio">
+              <span class="checkmark"></span>
+          </label>
+          </div>
+          <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" *ngIf="examQuestions.examQuestion[currentQuestion].QuestionType=='mcq'">
+            <label class="options">{{examQuestions.examQuestion[currentQuestion].Option_1}}
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">{{examQuestions.examQuestion[currentQuestion].Option_2}}
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+          <label class="options">{{examQuestions.examQuestion[currentQuestion].Option_3}}
+              <input type="radio" name="radio">
+              <span class="checkmark"></span>
+          </label>
+          <label class="options">{{examQuestions.examQuestion[currentQuestion].CorrectAnswer}}
+              <input type="radio" name="radio">
+              <span class="checkmark"></span>
+          </label>
+      </div>
+  </div>
+  <div class="d-flex align-items-center pt-3">
+      <div >
+          <button class="btn btn-primary"(click)="previousQuestion()">Previous</button>
+      </div>
+      <div class="ml-auto mr-sm-5">
+          <button class="btn btn-success"(click)="nextQuestion()">Next</button>
+      </div>
+      <div *ngIf="currentQuestion==examLength-1" class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </div>
+</div> -->
+
+<div class="d-flex justify-content-center vh-100 align-items-center">
+
+
+    <div class="card w-50 h-35">
+        <div class="card-body">
+            <!-- <div>
+                
+                <span style="font-size: small;"> Question {{currentQuestion+1}} of {{examLength}}</span>
+                <i class="fa-solid fa-headphones-simple fa-2xl p-3" style="cursor: pointer;" (click)="playAudio(examQuestions.examQuestion[currentQuestion].Question_ID)"></i>
+               
+                 <div class="box">
+                    <countdown class="float-right" [config]="config" (event)="handleEvent($event)"></countdown>
+                 </div>   
+                
+                      
+              
+             
+                
+            </div> -->
+            <div class="d-flex bd-highlight mb-3">
+                <div class="p-2 bd-highlight">  <span style="font-size: small;"> Question {{currentQuestion+1}} of {{examLength}}</span></div>
+                <!-- <div class=" bd-highlight"><i class="fa-solid fa-headphones-simple fa-2xl p-3" style="cursor: pointer;" (click)="playAudio(examQuestions.examQuestion[currentQuestion].Question_ID)"></i></div> -->
+                <div class="ms-auto p-2 bd-highlight"> <countdown class="clock"  [config]="config" (event)="handleEvent($event)"></countdown></div>
+              </div>
+            <div class="card-title" style="font-size: large;">
+                {{examQuestions.examQuestion[currentQuestion].QuestionTitle}}
+            </div>
+            <div [formGroup]="answers" *ngIf="examQuestions.examQuestion[currentQuestion].QuestionType=='mcq'">
+                <!-- <div> -->
+                <div class="form-check ">
+                    <input id="1-mcq" class="form-check-input" type="radio"  
+                        
+                        value="{{examQuestions.examQuestion[currentQuestion].Option_1}}"
+                        formControlName="examineeAnswer"
+                        #radio1
+                        (change)="onRadioChange($event)"
+                       >
+                    <label class="form-check-label">{{examQuestions.examQuestion[currentQuestion].Option_1}}</label>
+                </div>
+                <div   class="form-check ">
+                    <input id="2-mcq" class="form-check-input" type="radio" 
+                     
+                        value="{{examQuestions.examQuestion[currentQuestion].Option_2}}"
+                        #radio2
+                        formControlName="examineeAnswer"
+                        (change)="onRadioChange($event)"
+                        >
+                    <label class="form-check-label">{{examQuestions.examQuestion[currentQuestion].Option_2}}</label>
+                </div>
+
+                <div *ngIf="examQuestions.examQuestion[currentQuestion].Option_3 != null && examQuestions.examQuestion[currentQuestion].Option_3 != 'undefined'"   class="form-check ">
+                    <input id="3-mcq" class="form-check-input" type="radio" 
+                        
+                        value="{{examQuestions.examQuestion[currentQuestion].Option_3}}"
+                        #radio3
+                        formControlName="examineeAnswer"
+                        (change)="onRadioChange($event)"
+                       >
+                    <label
+                        class="form-check-label">{{examQuestions.examQuestion[currentQuestion].Option_3}}</label>
+                </div>
+                <div *ngIf="examQuestions.examQuestion[currentQuestion].Option_4 != null && examQuestions.examQuestion[currentQuestion].Option_4 != 'undefined'" class="form-check ">
+                    <input id="4-mcq" class="form-check-input" type="radio" 
+                   
+                        value="{{examQuestions.examQuestion[currentQuestion].Option_4}}"
+                        formControlName="examineeAnswer"
+                        (change)="onRadioChange($event)"
+                        #radio4
+                    >
+                    <label class="form-check-label">{{examQuestions.examQuestion[currentQuestion].Option_4}}</label>
+                </div>
+                <div *ngIf="examQuestions.examQuestion[currentQuestion].Option_5 != null && examQuestions.examQuestion[currentQuestion].Option_5 != 'undefined'" class="form-check ">
+                    <input id="5-mcq" class="form-check-input" type="radio" 
+                   
+                        value="{{examQuestions.examQuestion[currentQuestion].Option_5}}"
+                        formControlName="examineeAnswer"
+                        (change)="onRadioChange($event)"
+                        #radio4
+                    >
+                    <label class="form-check-label">{{examQuestions.examQuestion[currentQuestion].Option_5}}</label>
+                </div>
+                <div class="d-flex bd-highlight mb-3">
+                    <div class="p-2 bd-highlight"> <button class="btn btn-primary" (click)="previousQuestion()"> previous</button></div>
+                    <div class="p-2 bd-highlight"> <button class="btn btn-primary" *ngIf="hideNextButton()==false"  (click)="nextQuestion(examQuestions.examQuestion[currentQuestion].Question_ID);radio1.checked=false;radio2.checked=false;radio3.checked=false;radio4.checked=false;hideNextButton()" > next</button></div>
+                    <!-- <div *ngIf="hide==false" class="p-3 bd-highlight"> <i class="fa-solid fa-microphone fa-2xl" style="cursor: pointer;" (click)="startVoice()"></i></div>
+                    <div *ngIf="hide==true" class="p-3 bd-highlight"><i class="fa-solid fa-stop fa-2xl"  style="cursor: pointer;" (click)="stopVoice()"></i></div> -->
+                    <!-- <div class="ms-auto p-2 bd-highlight"><button type="submit" class="btn btn-primary">Submit</button></div> -->
+                    <div>
+            
+                        <div *ngIf="currentQuestion == examLength-1 " class="ms-auto p-2 bd-highlight"><button type="submit" class="btn btn-primary" (click)="sendExamineeAnswersForEvaluation(examQuestions.examQuestion[currentQuestion].Question_ID);openDialog()">Submit</button></div>
+                   </div>
+                  </div>
+                <!-- </div> -->
+            </div>
+            <div [formGroup]="answers" *ngIf="examQuestions.examQuestion[currentQuestion].QuestionType=='true or false'">
+                <div>
+                    <div  class="form-check ">
+
+                        <input id="1-TF" class="form-check-input" type="radio"
+                            value="{{examQuestions.examQuestion[currentQuestion].Option_1}}" 
+                           
+                            formControlName="examineeAnswer"
+                            #radio5
+                            (change)="onRadioChange($event)">
+                        <label class="form-check-label"> {{examQuestions.examQuestion[currentQuestion].Option_1}}</label>
+                    </div>
+                    <div   class="form-check ">
+                        <input id="2-TF" class="form-check-input" type="radio" 
+                            value="{{examQuestions.examQuestion[currentQuestion].CorrectAnswer}}"
+                            
+                            #radio6
+                            formControlName="examineeAnswer"
+                            (change)="onRadioChange($event)"
+                            >
+                        <label
+                            class="form-check-label">{{examQuestions.examQuestion[currentQuestion].CorrectAnswer}}</label>
+                    </div>
+                    <div  [formGroup]="answers" class="d-flex bd-highlight mb-3">
+                        <div class="p-2 bd-highlight"> <button class="btn btn-primary" (click)="previousQuestion()"> previous</button></div>
+                        <div class="p-2 bd-highlight"> <button class="btn btn-primary" id="next" *ngIf="hideNextButton()==false" (click)="nextQuestion(examQuestions.examQuestion[currentQuestion].Question_ID);radio5.checked=false; radio6.checked=false;hideNextButton()"  > next</button></div>
+                        <!-- <div *ngIf="hide==false" class="p-3 bd-highlight"> <i class="fa-solid fa-microphone fa-2xl" style="cursor: pointer;" (click)="startVoice()"></i></div>
+                        <div *ngIf="hide==true" class="p-3 bd-highlight"><i class="fa-solid fa-stop fa-2xl"  style="cursor: pointer;" (click)="stopVoice()"></i></div> -->
+                        <!-- <div class="ms-auto p-2 bd-highlight"><button type="submit" class="btn btn-primary">Submit</button></div> -->
+                        <div>
+            
+                            <div *ngIf="currentQuestion == examLength-1 " class="ms-auto p-2 bd-highlight"><button type="submit" class="btn btn-primary" (click)="sendExamineeAnswersForEvaluation(examQuestions.examQuestion[currentQuestion].Question_ID);openDialog()">Submit</button></div>
+                       </div>
+                      </div>
+                </div>
+            </div>
+            <div [formGroup]="answers" *ngIf="examQuestions.examQuestion[currentQuestion].QuestionType=='essay'">
+
+                <div class="form-group">
+                    <textarea formControlName="examineeAnswer" class="form-control" rows="3" [(ngModel)]="textArea">{{voiceRecognition.text}}</textarea>
+                    
+                </div>
+                <div class="d-flex bd-highlight mb-3">
+                    <div class="p-2 bd-highlight"> <button class="btn btn-primary" (click)="previousQuestion()"> previous</button></div>
+                    <div class="p-2 bd-highlight"> <button class="btn btn-primary" *ngIf="hideNextQuestionButton==false"  (click)="nextQuestion(examQuestions.examQuestion[currentQuestion].Question_ID);" (keydown)="onKeydownMain($event,examQuestions.examQuestion[currentQuestion].Question_ID )"> next</button></div>
+                    <!-- <div *ngIf="hide==false" class="p-3 bd-highlight"> <i class="fa-solid fa-microphone fa-2xl" style="cursor: pointer;" (click)="startVoice()"></i></div>
+                    <div *ngIf="hide==true" class="p-3 bd-highlight"><i class="fa-solid fa-stop fa-2xl"  style="cursor: pointer;" (click)="stopVoice()"></i></div> -->
+                    <div>
+            
+                        <div *ngIf="currentQuestion == examLength-1 " class="ms-auto p-2 bd-highlight"><button type="submit" class="btn btn-primary" (click)="sendExamineeAnswersForEvaluation(examQuestions.examQuestion[currentQuestion].Question_ID);openDialog()">Submit</button></div>
+                   </div>                 
+                </div>
+            </div>
+           
+
+                <!-- <div class="box p-2">
+                <button class="btn btn-primary" (click)="previousQuestion()"> previous</button>
+                <button class="btn btn-primary" (click)="nextQuestion()"> next</button>
+                <div *ngIf="currentQuestion==examLength-1" class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div> -->
+            <!-- <div class="d-flex bd-highlight mb-3">
+                <div class="p-2 bd-highlight"> <button class="btn btn-primary" (click)="nextQuestion()"> next</button></div>
+                <div *ngIf="hide==false" class="p-3 bd-highlight"> <i class="fa-solid fa-microphone fa-2xl" style="cursor: pointer;" (click)="startVoice()"></i></div>
+                <div *ngIf="hide==true" class="p-3 bd-highlight"><i class="fa-solid fa-stop fa-2xl"  style="cursor: pointer;" (click)="stopVoice()"></i></div>
+                <div class="ms-auto p-2 bd-highlight"><button type="submit" class="btn btn-primary">Submit</button></div>
+              </div> -->
+
+        </div>
+    </div>
+
+
+</div>

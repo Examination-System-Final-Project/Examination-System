@@ -1,0 +1,15 @@
+<mat-tab-group #matgroup >
+    <mat-tab class="justify-content-center" label=" Manually Create Exam">
+      <app-first-step></app-first-step>
+    </mat-tab>
+    <mat-tab label="Auto-Generate Exam">
+       <app-second-step></app-second-step>
+      </mat-tab>
+      <mat-tab   label="Assign Questions in Exam">
+        
+      </mat-tab>
+      <mat-tab label="Assign Groups For Exam">
+
+      </mat-tab>
+</mat-tab-group>
+<button *ngIf="tab.examCreationSuccess" class="btn btn-primary" (click)='matgroup.selectedIndex = 2'>Go To Assign Questions in Exam</button>

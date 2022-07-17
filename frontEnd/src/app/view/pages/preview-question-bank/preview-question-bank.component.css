@@ -1,0 +1,24 @@
+body{
+    background-color: #ECECEC;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+    justify-content: center;
+}
+.fontTitle{
+    font-size: x-large;
+}
+label {
+    font-size: 20px;
+ 
+}
+h2{
+    font-weight: bolder;
+    font-size:25px;
+}
+#correct{
+    font-weight: bold;
+    color: red;
+}

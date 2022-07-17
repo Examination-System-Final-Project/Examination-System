@@ -1,0 +1,83 @@
+
+
+  <div class="main">
+
+    <!-- Sign up form -->
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Sign up</h2>
+                    <form [formGroup]="signupform" (ngSubmit)="signup()" class="register-form" id="register-form">
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" formControlName="firstName" required id="name" placeholder="Your First Name"/>
+                            <small *ngIf="f.firstName.invalid && f.firstName.touched" class="text-danger">First name is either empty or invalid (min: 2 characters)</small> 
+                          </div>
+                        <div class="form-group">
+                          <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                          <input type="text" formControlName="lastName" required id="name" placeholder="Your Last Name"/>
+                          <small *ngIf="f.lastName.invalid && f.lastName.touched" class="text-danger">Last name is either empty or invalid (min: 2 characters)</small> 
+
+                        </div>
+                      <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text"  formControlName="email"  required id="name" placeholder="Your Email"/>
+                       <small *ngIf="f.email.invalid && f.email.touched" class="text-danger">Email is either empty or invalid </small> 
+
+                      </div>
+                    <div class="form-group">
+                      <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                      <input type="password"  formControlName="password"  required id="name" placeholder="Your Password"/>
+                      <small *ngIf="f.password.invalid && f.password.touched" class="text-danger">Password is either empty or invalid (min: 6 characters,max: 20 characters)</small> 
+                    </div>
+        
+                  <div class="form-group">
+                    <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                    <input type="text"  formControlName="phoneNumber"  required id="name" placeholder="Your Phone Number "/>
+                    <small *ngIf="f.phoneNumber.invalid && f.phoneNumber.touched" class="text-danger">Phone number is either empty or invalid (should be 11 numbers) </small>
+
+                  </div>
+                <div  class="form-group">
+                  <label for="name"><i class="zmdi zmdi-account material-icons-name">Male </i></label>
+                  <input type="radio"  formControlName="gender" name="gender" required id="name" value="male"/>
+              </div>
+              <div class="form-group">
+                <label for="name"><i class="zmdi zmdi-account material-icons-name"> Female</i></label>
+                <input type="radio"  formControlName="gender" name="gender" required id="name" value="female"/>
+            </div>
+            <small *ngIf="f.gender.invalid && f.gender.touched" class="text-danger">gender is empty</small>
+
+            <div class="form-group">
+              <h4>Examinee condition</h4>
+              <select class="form-select" formControlName="ExamieeCondition" [(ngModel)]="type">
+                <option  value="Normal">Normal </option>
+                <option value="Injured">Injured</option>
+                <option value="Handicapped">Handicapped</option>
+              
+              </select>
+          </div>
+                        <!-- <div class="form-group">
+                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                            <input type="email" name="email" id="email" placeholder="Your Email"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" name="pass" id="pass" placeholder="Password"/>
+                        </div> -->
+  
+  
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="../../../../assets/images/signup-image.jpg" alt="sing up image"></figure>
+                    <a href="#" class="signup-image-link">I am already member</a>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+  
