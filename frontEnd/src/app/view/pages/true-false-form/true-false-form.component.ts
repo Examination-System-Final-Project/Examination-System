@@ -34,7 +34,7 @@ export class TrueFalseFormComponent implements OnInit {
   }
   createTrueFalse()
   {
-    if (this.trueFalseForm.controls['correctAnswer'].value=="true"){
+    if (this.trueFalseForm.controls['correctAnswer'].value=="True"){
       this.trueFalseForm.controls['Answer_1'].setValue("False");   
     }
 else{
