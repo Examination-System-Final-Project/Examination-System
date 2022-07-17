@@ -106,6 +106,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDatepickerModule,
     MatNativeDateModule,
     BrowserAnimationsModule
+
     
         // AngularFontAwesomeModule
     ],

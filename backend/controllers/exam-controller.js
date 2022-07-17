@@ -29,7 +29,7 @@ exports.createExam = async (req, res) => {
     }
     await db.conn.promise()
         .query(`
-        INSERT INTO Exam(ExamName, Duration, StartTime,
+        INSERT INTO exam(ExamName, Duration, StartTime,
             EndTime, Description, Organization_ID, Instructor_ID, Number_Of_Attempts_Allowed)
         VALUES('${examName}','${duration}' ,'${startTime}',
                 '${endTime}', '${description}',
@@ -220,7 +220,7 @@ exports.editQuestionGrade = async (req, res) => {
 exports.deleteExam = async (req, res) => {
     const examId = req.param('exam')
     await db.conn.promise().query(`
-        DELETE FROM Exam 
+        DELETE FROM exam 
         WHERE Exam_ID = '${examId}'
         `)
         .then(data => {
@@ -252,7 +252,7 @@ exports.assignQuestionToExam = async (req, res) => {
 
     await db.conn.promise()
         .query(`
-        INSERT INTO Exam_has_Question(Exam_Exam_ID, Question_Question_ID, Grade)
+        INSERT INTO exam_has_question(Exam_Exam_ID, Question_Question_ID, Grade)
         VALUES('${examId}','${questionId}', '${questionGrade}')
                  `)
         .then(data => {
@@ -278,7 +278,7 @@ exports.removeQuestionFromExam = async (req, res) => {
 
     await db.conn.promise()
         .query(`
-        DELETE FROM Exam_has_Question WHERE Exam_Exam_ID =${examId} 
+        DELETE FROM exam_has_question WHERE Exam_Exam_ID =${examId} 
         AND Question_Question_ID = ${questionId}
                  `)
         .then(data => {
@@ -351,7 +351,7 @@ exports.examAutoCreation = async (req, res) => {
         for (let i = 0; i < examQuestions.length; i++) {
             await db.conn.promise()
                 .query(`
-            INSERT INTO Exam_has_Question(Exam_Exam_ID, Question_Question_ID, Grade)
+            INSERT INTO exam_has_question(Exam_Exam_ID, Question_Question_ID, Grade)
             VALUES('${examId}','${examQuestions[i].Question_ID}', '${questionGrade}')
                      `)
         }
@@ -526,8 +526,8 @@ exports.generateUniqueExamForEachStudentindividually = async (req, res) => {
     let errorFlag = false
     let isRecordExists = false
     await db.conn.promise().query(`
-    SELECT * FROM Exam_has_Question
-    JOIN Question ON Exam_has_Question.Question_Question_ID = Question.Question_ID
+    SELECT * FROM exam_has_question
+    JOIN question ON exam_has_question.Question_Question_ID = Question.Question_ID
     WHERE Exam_Exam_ID = ${examId}
     `).then(data => {
         questions = data[0]
@@ -687,8 +687,8 @@ exports.generateUniqueExamForEachStudentInGroup = async (req, res) => {
     //Get questions inside specific exam and store them in questions array
     let getExamQuestions = async (examId) => {
         await db.conn.promise().query(`
-        SELECT * FROM Exam_has_Question
-        JOIN Question ON Exam_has_Question.Question_Question_ID = Question.Question_ID
+        SELECT * FROM exam_has_question
+        JOIN question ON exam_has_question.question_question_ID = question.question_ID
         WHERE Exam_Exam_ID = ${examId}
     `).then(data => {
             questions = data[0]
