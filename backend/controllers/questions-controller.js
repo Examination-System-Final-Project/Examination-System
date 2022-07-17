@@ -44,11 +44,12 @@ exports.createQuestionMcq = async (req, res) => {
             ?, ?, ?,
             ?, ?, ?, ?,
             ?, ?)
-            `,[questionType,
-            questionDifficulty,questionTitle,
-            questionWeight, Answer_1, Answer_2,
-            Answer_3, Answer_4, Answer_5, Answer_6,
-            correctAnswer,QuestionBankId])
+            `, [questionType,
+                questionDifficulty, questionTitle,
+                questionWeight, Answer_1, Answer_2,
+                Answer_3, Answer_4, Answer_5, Answer_6,
+                correctAnswer, QuestionBankId
+            ])
         await db.conn.promise()
             .query(`
         SELECT LAST_INSERT_ID(Question_ID) as question_ID from question order by LAST_INSERT_ID(Question_ID) desc limit 1;
@@ -173,10 +174,11 @@ exports.createQuestionTF = async (req, res) => {
                ?,?,
                ?, ?, ?,
                ?)
-               `,[questionType,
-               questionDifficulty,questionTitle,
-               questionWeight, Answer_1,
-               correctAnswer,QuestionBankId])
+               `, [questionType,
+                questionDifficulty, questionTitle,
+                questionWeight, Answer_1,
+                correctAnswer, QuestionBankId
+            ])
         await db.conn.promise()
             .query(`
         SELECT LAST_INSERT_ID(Question_ID) as question_ID from question order by LAST_INSERT_ID(Question_ID) desc limit 1;
@@ -231,10 +233,11 @@ exports.createQuestionEssay = async (req, res) => {
                ?,?,
                ?, ?, ?,
                ?)
-               `,[questionType,
-               questionDifficulty,questionTitle,
-               questionWeight,
-               correctAnswer,QuestionBankId])
+               `, [questionType,
+                questionDifficulty, questionTitle,
+                questionWeight,
+                correctAnswer, QuestionBankId
+            ])
         await db.conn.promise()
             .query(`
             SELECT LAST_INSERT_ID(Question_ID) as question_ID from question order by LAST_INSERT_ID(Question_ID) desc limit 1;
@@ -293,7 +296,7 @@ exports.listQuestions = async (req, res) => {
     const questionBankId = req.param('questionBank') || 1
 
     const questions = await db.conn.promise().query(`
-    SELECT * FROM Question
+    SELECT * FROM question
     WHERE QuestionBank_ID ='${questionBankId}'
     `)
         .then(questions => {

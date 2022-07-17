@@ -1,7 +1,8 @@
 const db = require('../database')
 const Joi = require('joi')
 const {
-    number
+    number,
+    isError
 } = require('joi')
 
 
@@ -18,7 +19,7 @@ exports.createQuestionBank = async (req, res) => {
         return res.status('400').send(result.error.details[0].message)
     }
     await db.conn.promise()
-        .query(`INSERT INTO QuestionBank(QuestionBankName, Description, Instructor_ID)
+        .query(`INSERT INTO questionbank(QuestionBankName, Description, Instructor_ID)
         VALUES('${QuestionBankName}','${QuestionBankDescription}' ,'${instructorId}')`)
         .then(data => {
 
@@ -42,7 +43,7 @@ exports.createQuestionBank = async (req, res) => {
 exports.deleteQuestionBank = async (req, res) => {
     const questionBankId = req.param('questionBank')
     await db.conn.promise().query(`
-        DELETE FROM QuestionBank 
+        DELETE FROM questionBank 
         WHERE QuestionBank_ID = '${questionBankId}'
         `)
         .then(data => {
@@ -79,7 +80,7 @@ exports.editQuestionBank = async (req, res) => {
     }
     await db.conn.promise()
         .query(`
-        UPDATE QuestionBank
+        UPDATE questionBank
         SET QuestionBankName = '${QuestionBankName}'
         WHERE QuestionBank_ID = '${questionBankId}'
         `)
@@ -106,21 +107,13 @@ exports.editQuestionBank = async (req, res) => {
 }
 exports.listQuestionBanks = async (req, res) => {
     const id = req.param('id') || 1
+    let isError = false
     let questionBanks
     try {
-        await db.conn.promise().query(`SELECT * FROM QuestionBank WHERE Instructor_ID = ${id}`)
+        await db.conn.promise().query(`SELECT * FROM questionbank WHERE Instructor_ID = ${id}`)
             .then(data => {
                 questionBanks = data[0]
             })
-            .catch(error => {
-                console.log(error);
-                res.status(500).json({
-
-                    status: "error",
-                    msg: "500 internal server error"
-                })
-            })
-
         for (let i = 0; i < questionBanks.length; i++) {
             await db.conn.promise().query(`SELECT COUNT(*) as count FROM question WHERE QuestionBank_ID = ${questionBanks[i].QuestionBank_ID} `)
                 .then(data => {
@@ -128,24 +121,18 @@ exports.listQuestionBanks = async (req, res) => {
                         NumberOfQuestions: data[0][0].count
                     })
 
-                }).catch(error => {
-                    console.log(error);
-                    res.status(500).json({
-
-                        status: "error",
-                        msg: "500 internal server error"
-                    })
                 })
         }
         console.log(questionBanks)
     } catch (error) {
+        isError = true
         console.log(error);
         res.status(500).json({
-
             status: "error",
             msg: "500 internal server error"
         })
-    } finally {
+    }
+    if (!isError) {
         res.status(200).json({
             questionBanks: questionBanks
         })
