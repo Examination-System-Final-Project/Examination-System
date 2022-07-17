@@ -106,201 +106,193 @@ export class InjuredExamComponent implements OnInit {
     this.currentQuestion=0
     localStorage.removeItem('numberOfQuestion')
     this.listExamQuestions()
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key=='ArrowRight')
-    //   {
-    //   // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
-    //   // {
-    //   // this.currentQuestion++
-    //   // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
-    //   // }
-    //   this.nextQuestion(this.examQuestions.examQuestion[this.currentQuestion].Question_ID)
-      
-    // }
-    
-    // })
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key=='ArrowLeft')
-    //   {
-    //   // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
-    //   // {
-    //   // this.currentQuestion++
-    //   // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
-    //   // }
-    //   this.previousQuestion()
-      
-    // }
-    // })
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key=='Escape')
-    //   {
-    //   // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
-    //   // {
-    //   // this.currentQuestion++
-    //   // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
-    //   // }
-    //   this.audio1.pause()
-    //   this.audio2.pause()
-    //   clearTimeout(this.settimeout)
-    //   clearTimeout(this.settimeout2)
-    //   clearTimeout(this.settimeout3)
-    //   clearTimeout(this.settimeout4)
-    //   this.audio11.pause()
-    //   this.audio12.pause()
-    //   this.audio13.pause()
-    // }
-    // })
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key==' ')
-    //   {
-    //   // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
-    //   // {
-    //   // this.currentQuestion++
-    //   // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
-    //   // }
-    //   this.playAudio(this.examQuestions.examQuestion[this.currentQuestion].Question_ID)
-      
-    // }
-    // })
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key=='1' && this.examQuestions.examQuestion[this.currentQuestion].QuestionType == 'mcq')
-    //   {
-     
-    //   let mcqFirstAnswer = document.getElementById('1-mcq') as HTMLInputElement
-    //    mcqFirstAnswer.value=this.examQuestions.examQuestion[this.currentQuestion].Option_1
-    //   let mcqSecondAnswer = document.getElementById('2-mcq') as HTMLInputElement
-    //   let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
-    //   let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
-    //   console.log(mcqFirstAnswer.value)
-    //   this.answers.controls['examineeAnswer'].setValue(mcqFirstAnswer.value)
-    //   console.log(this.answers.value)
-    //     mcqSecondAnswer.checked=false;
-    //     mcqThirdAnswer.checked=false;
-    //     mcqFourthAnswer.checked=false;
-        
-    //     // this.answers.controls['examineeAnswer'].setValue("ay haga") 
-    //  mcqFirstAnswer.checked=true
-     
-    // //  if( mcqFirstAnswer.checked==true)
-    // //  this.answers.controls['examineeAnswer'].setValue(mcqFirstAnswer.value)      
-    // }
-    // if(event.key=='1' && this.examQuestions.examQuestion[this.currentQuestion].QuestionType == 'true or false'){
-    // let TFanswer1 = document.getElementById('1-TF') as HTMLInputElement
-    // TFanswer1.value=this.examQuestions.examQuestion[this.currentQuestion].Option_1
-    //       this.answers.controls['examineeAnswer'].setValue( TFanswer1.value)
-    // let TFanswer2 = document.getElementById('2-TF') as HTMLInputElement
-    // TFanswer2.checked=false;
-    // TFanswer1.checked=true
-    // }
-    // })
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key=='2' && this.examQuestions.examQuestion[this.currentQuestion].QuestionType == 'mcq')
-    //   {
-    //   // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
-    //   // {
-    //   // this.currentQuestion++
-    //   // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
-    //   // }
-    //   let mcqFirstAnswer = document.getElementById('1-mcq') as HTMLInputElement
-    //   let mcqSecondAnswer = document.getElementById('2-mcq') as HTMLInputElement
-    //   mcqSecondAnswer.value= this.examQuestions.examQuestion[this.currentQuestion].Option_2
-    //   this.answers.controls['examineeAnswer'].setValue( mcqSecondAnswer.value)
-    //   let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
-    //   let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
-    //   mcqFirstAnswer.checked=false;
-    //   mcqThirdAnswer.checked=false;
-    //   mcqFourthAnswer.checked=false;
-    //  mcqSecondAnswer.checked=true
-    
-    // }
-    // if(event.key=='2' && this.examQuestions.examQuestion[this.currentQuestion].QuestionType == 'true or false'){
-    //   let TFanswer1 = document.getElementById('1-TF') as HTMLInputElement
-    //   let TFanswer2 = document.getElementById('2-TF') as HTMLInputElement
-    //       TFanswer2.value=this.examQuestions.examQuestion[this.currentQuestion].Option_2
-    //       this.answers.controls['examineeAnswer'].setValue( TFanswer2.value)
-    //   TFanswer1.checked=false
-    //  TFanswer2.checked=true
-    //   }
-    // })
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key=='3')
-    //   {
-    //   // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
-    //   // {
-    //   // this.currentQuestion++
-    //   // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
-    //   // }
-    //   let mcqFirstAnswer = document.getElementById('1-mcq') as HTMLInputElement
-    //   let mcqSecondAnswer = document.getElementById('2-mcq') as HTMLInputElement
-    //   let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
-    //   mcqThirdAnswer.value= this.examQuestions.examQuestion[this.currentQuestion].Option_3
-    //   this.answers.controls['examineeAnswer'].setValue( mcqThirdAnswer.value)
-    //   let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
-    //   mcqFirstAnswer.checked=false;
-    //   mcqSecondAnswer.checked=false;
-    //   mcqFourthAnswer.checked=false;
-    //  mcqThirdAnswer.checked=true
-      
-    // }
-    // })
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key=='4')
-    //   {
-    //   // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
-    //   // {
-    //   // this.currentQuestion++
-    //   // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
-    //   // }
-    //   let mcqFirstAnswer = document.getElementById('1-mcq') as HTMLInputElement
-    //   let mcqSecondAnswer = document.getElementById('2-mcq') as HTMLInputElement
-    //   let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
-    //   let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
-    //   mcqFourthAnswer.value= this.examQuestions.examQuestion[this.currentQuestion].Option_4
-    //   this.answers.controls['examineeAnswer'].setValue( mcqFourthAnswer.value)
-    //   mcqFirstAnswer.checked=false;
-    //   mcqSecondAnswer.checked=false;
-    //   mcqThirdAnswer.checked=false;
-    //  mcqFourthAnswer.checked=true
-      
-    // }
-    // })
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key=='ArrowUp')
-    //   {
-    //     this.startVoice()
-    //     this.spacePressed=true;
-    //     // this.counter++
-    //     console.log(event)
-    //     console.log(this.spacePressed)
-    //     // console.log(this.counter)
-       
-    //   }
-     
-      // if(event.code=='Space' && this.spacePressed==true)
+    window.addEventListener('keydown',(event)=>{
+      if(event.key=='ArrowRight')
+      {
+      // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
       // {
-        // this.isStillRecoginze=this.voiceRecognition.stop() === false ? false : false
-        // this.hide=false
-        // this.textArea=this.voiceRecognition.text
-      //   this.spacePressed=false;
+      // this.currentQuestion++
+      // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
       // }
+      this.nextQuestion(this.examQuestions.examQuestion[this.currentQuestion].Question_ID)
+      
+    }
     
+    })
+    window.addEventListener('keydown',(event)=>{
+      if(event.key=='ArrowLeft')
+      {
+      // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
+      // {
+      // this.currentQuestion++
+      // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
+      // }
+      this.previousQuestion()
+      
+    }
+    })
+    window.addEventListener('keydown',(event)=>{
+      if(event.key=='Escape')
+      {
+      // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
+      // {
+      // this.currentQuestion++
+      // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
+      // }
+      
+    }
+    })
+    window.addEventListener('keydown',(event)=>{
+      if(event.key==' ')
+      {
+      // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
+      // {
+      // this.currentQuestion++
+      // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
+      // }
+      this.playAudio(this.examQuestions.examQuestion[this.currentQuestion].Question_ID)
+      
+    }
+    })
+    window.addEventListener('keydown',(event)=>{
+      if(event.key=='1' && this.examQuestions.examQuestion[this.currentQuestion].QuestionType == 'mcq')
+      {
+     
+      let mcqFirstAnswer = document.getElementById('1-mcq') as HTMLInputElement
+       mcqFirstAnswer.value=this.examQuestions.examQuestion[this.currentQuestion].Option_1
+      let mcqSecondAnswer = document.getElementById('2-mcq') as HTMLInputElement
+      let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
+      let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
+      console.log(mcqFirstAnswer.value)
+      this.answers.controls['examineeAnswer'].setValue(mcqFirstAnswer.value)
+      console.log(this.answers.value)
+        mcqSecondAnswer.checked=false;
+        mcqThirdAnswer.checked=false;
+        mcqFourthAnswer.checked=false;
+        
+        // this.answers.controls['examineeAnswer'].setValue("ay haga") 
+     mcqFirstAnswer.checked=true
+     
+    //  if( mcqFirstAnswer.checked==true)
+    //  this.answers.controls['examineeAnswer'].setValue(mcqFirstAnswer.value)      
+    }
+    if(event.key=='1' && this.examQuestions.examQuestion[this.currentQuestion].QuestionType == 'true or false'){
+    let TFanswer1 = document.getElementById('1-TF') as HTMLInputElement
+    TFanswer1.value=this.examQuestions.examQuestion[this.currentQuestion].Option_1
+          this.answers.controls['examineeAnswer'].setValue( TFanswer1.value)
+    let TFanswer2 = document.getElementById('2-TF') as HTMLInputElement
+    TFanswer2.checked=false;
+    TFanswer1.checked=true
+    }
+    })
+    window.addEventListener('keydown',(event)=>{
+      if(event.key=='2' && this.examQuestions.examQuestion[this.currentQuestion].QuestionType == 'mcq')
+      {
+      // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
+      // {
+      // this.currentQuestion++
+      // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
+      // }
+      let mcqFirstAnswer = document.getElementById('1-mcq') as HTMLInputElement
+      let mcqSecondAnswer = document.getElementById('2-mcq') as HTMLInputElement
+      mcqSecondAnswer.value= this.examQuestions.examQuestion[this.currentQuestion].Option_2
+      this.answers.controls['examineeAnswer'].setValue( mcqSecondAnswer.value)
+      let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
+      let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
+      mcqFirstAnswer.checked=false;
+      mcqThirdAnswer.checked=false;
+      mcqFourthAnswer.checked=false;
+     mcqSecondAnswer.checked=true
     
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key=='ArrowDown')
-    //   {
-    //     this.isStillRecoginze=this.voiceRecognition.stop() === false ? false : false
-    //     this.textArea=this.voiceRecognition.text
-    //     this.hide=false
-    //     console.log(event)
-    //   }
-    // })
-    // window.addEventListener('keydown',(event)=>{
-    //   if(event.key=='Enter')
-    //   {
-    //     this.sendExamineeAnswersForEvaluation(this.examQuestions.examQuestion[this.currentQuestion].Question_ID)
-    //     this.openDialog()
-    //   }
-    // })
+    }
+    if(event.key=='2' && this.examQuestions.examQuestion[this.currentQuestion].QuestionType == 'true or false'){
+      let TFanswer1 = document.getElementById('1-TF') as HTMLInputElement
+      let TFanswer2 = document.getElementById('2-TF') as HTMLInputElement
+          TFanswer2.value=this.examQuestions.examQuestion[this.currentQuestion].CorrectAnswer
+          this.answers.controls['examineeAnswer'].setValue( TFanswer2.value)
+      TFanswer1.checked=false
+     TFanswer2.checked=true
+      }
+    })
+    window.addEventListener('keydown',(event)=>{
+      if(event.key=='3')
+      {
+      // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
+      // {
+      // this.currentQuestion++
+      // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
+      // }
+      let mcqFirstAnswer = document.getElementById('1-mcq') as HTMLInputElement
+      let mcqSecondAnswer = document.getElementById('2-mcq') as HTMLInputElement
+      let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
+      mcqThirdAnswer.value= this.examQuestions.examQuestion[this.currentQuestion].Option_3
+      this.answers.controls['examineeAnswer'].setValue( mcqThirdAnswer.value)
+      let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
+      mcqFirstAnswer.checked=false;
+      mcqSecondAnswer.checked=false;
+      mcqFourthAnswer.checked=false;
+     mcqThirdAnswer.checked=true
+      
+    }
+    })
+    window.addEventListener('keydown',(event)=>{
+      if(event.key=='4')
+      {
+      // if(this.currentQuestion<this.examQuestions.examQuestion.length-1)
+      // {
+      // this.currentQuestion++
+      // localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
+      // }
+      let mcqFirstAnswer = document.getElementById('1-mcq') as HTMLInputElement
+      let mcqSecondAnswer = document.getElementById('2-mcq') as HTMLInputElement
+      let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
+      let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
+      mcqFourthAnswer.value= this.examQuestions.examQuestion[this.currentQuestion].Option_4
+      this.answers.controls['examineeAnswer'].setValue( mcqFourthAnswer.value)
+      mcqFirstAnswer.checked=false;
+      mcqSecondAnswer.checked=false;
+      mcqThirdAnswer.checked=false;
+     mcqFourthAnswer.checked=true
+      
+    }
+    })
+    window.addEventListener('keydown',(event)=>{
+      if(event.key=='ArrowUp')
+      {
+        this.startVoice()
+        this.spacePressed=true;
+        // this.counter++
+        console.log(event)
+        console.log(this.spacePressed)
+        // console.log(this.counter)
+       
+      }
+     
+      if(event.code=='Space' && this.spacePressed==true)
+      {
+        this.isStillRecoginze=this.voiceRecognition.stop() === false ? false : false
+        this.hide=false
+        this.textArea=this.voiceRecognition.text
+        this.spacePressed=false;
+      }
+    })
+    
+    window.addEventListener('keydown',(event)=>{
+      if(event.key=='ArrowDown')
+      {
+        this.isStillRecoginze=this.voiceRecognition.stop() === false ? false : false
+        this.textArea=this.voiceRecognition.text
+        this.hide=false
+        console.log(event)
+      }
+    })
+    window.addEventListener('keydown',(event)=>{
+      if(event.key=='Enter')
+      {
+        this.sendExamineeAnswersForEvaluation(this.examQuestions.examQuestion[this.currentQuestion].Question_ID)
+        this.openDialog()
+      }
+    })
 
   }
   handleEvent(ev: CountdownEvent) {

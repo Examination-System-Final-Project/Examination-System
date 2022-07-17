@@ -220,7 +220,7 @@ console.log(this.examid )
       console.log(err)
       alert("something went wrong ")
 
-})
+}) 
 
 }
 assignQuestion(grade : any){
