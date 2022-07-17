@@ -104,10 +104,14 @@ const KEY = 'time';
       {
         this.currentQuestion= parseInt(localStorage.getItem('numberOfQuestion')!)
       }
+     
       else
       this.currentQuestion=0
+      
       localStorage.removeItem('numberOfQuestion')
       this.listExamQuestions()
+      
+      
       window.addEventListener('keydown',(event)=>{
         if(event.key=='ArrowRight')
         {
@@ -340,18 +344,34 @@ const KEY = 'time';
     }
     previousQuestion()
     {
+      
+      
+      
+      this.audio2.pause()
+      clearTimeout(this.settimeout)
+      clearTimeout(this.settimeout2)
+      clearTimeout(this.settimeout3)
+      clearTimeout(this.settimeout4)
+      
       this.hideNextQuestionButton=false;
       if(this.currentQuestion>0)
       this.currentQuestion--
       localStorage.setItem('numberOfQuestion',this.currentQuestion.toString())
+      this.ExamAudioInstructions()
     }
     listExamQuestions()
     {
       this.listQuestionsInExam.listQuestionsInExam(this.EID,this.ExID).subscribe((res:any)=>{
         this.examQuestions=res
         // this.examQuestions.examQuestion.sort(() => (Math.random() > .5) ? 1 : -1)
+      
         console.log(this.examQuestions)
-        this.ngOnInit()
+        // this.ngOnInit()
+        if(localStorage.getItem("numberOfQuestion") === null  || localStorage.getItem("numberOfQuestion")=='0' )
+        {
+          
+          this.ExamAudioInstructions()
+        }
         this.examLength=this.examQuestions.examQuestion.length
         console.log(this.examQuestions.examQuestion.length)
       },err=>{
