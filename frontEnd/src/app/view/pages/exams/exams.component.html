@@ -189,7 +189,7 @@
                     <div *ngIf="hide==true" class="p-3 bd-highlight"><i class="fa-solid fa-stop fa-2xl"  style="cursor: pointer;" (click)="stopVoice()"></i></div>
                     <div>
             
-                        <div *ngIf="currentQuestion == examLength-1 " class="ms-auto p-2 bd-highlight"><button type="submit" class="btn btn-primary" (click)="sendExamineeAnswersForEvaluation(examQuestions.examQuestion[currentQuestion].Question_ID);openDialog()">Submit</button></div>
+                        <div *ngIf="currentQuestion == examLength-1 " class="ms-auto p-2 bd-highlight"><button type="submit" class="btn btn-primary" (click)="sendExamineeAnswersForEvaluation(examQuestions.examQuestion[currentQuestion].Question_ID)">Submit</button></div>
                    </div>                 
                 </div>
             </div>
