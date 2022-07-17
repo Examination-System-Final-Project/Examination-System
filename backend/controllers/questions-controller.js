@@ -108,7 +108,7 @@ exports.editQuestion = async (req, res) => {
 
     await db.conn.promise()
         .query(`
-        UPDATE Question
+        UPDATE question
         SET QuestionDifficulty = '${questionDifficulty}',
             QuestionTitle = '${questionTitle}',
             QuestionWeight = '${questionWeight}',
@@ -168,7 +168,7 @@ exports.createQuestionTF = async (req, res) => {
     }
     try {
         await db.conn.promise()
-            .query(`INSERT INTO Question(QuestionType,QuestionDifficulty,
+            .query(`INSERT INTO question(QuestionType,QuestionDifficulty,
                 QuestionTitle,QuestionWeight, Option_1, CorrectAnswer, QuestionBank_ID)
                VALUES(?,
                ?,?,
@@ -227,16 +227,17 @@ exports.createQuestionEssay = async (req, res) => {
     }
     try {
         await db.conn.promise()
-            .query(`INSERT INTO Question(QuestionType,QuestionDifficulty,
+            .query(`INSERT INTO question(QuestionType,QuestionDifficulty,
                 QuestionTitle,QuestionWeight, CorrectAnswer, QuestionBank_ID)
                VALUES(?,
                ?,?,
 
                ?, ?, ?)
-               `,[questionType,
-               questionDifficulty,questionTitle,
-               questionWeight,
-               correctAnswer,QuestionBankId])
+               `, [questionType,
+                questionDifficulty, questionTitle,
+                questionWeight,
+                correctAnswer, QuestionBankId
+            ])
 
         await db.conn.promise()
             .query(`
@@ -266,7 +267,7 @@ exports.createQuestionEssay = async (req, res) => {
 exports.deleteQuestion = async (req, res) => {
     const questionId = req.param('question')
     await db.conn.promise().query(`
-    DELETE FROM Question 
+    DELETE FROM question 
     WHERE Question_ID = '${questionId}'
     `)
         .then(data => {
@@ -314,7 +315,7 @@ exports.listQuestions = async (req, res) => {
 exports.listQuestionInfo = async (req, res) => {
     const questionId = req.param('question') || 1
     const questions = await db.conn.promise().query(`
-    SELECT * FROM Question
+    SELECT * FROM question
     WHERE Question_ID ='${questionId}'
     `)
         .then(questions => {
@@ -352,7 +353,7 @@ exports.listQuestionsInQuestionBankNotInExam = async (req, res) => {
         })
 
         await db.conn.promise().query(`
-    SELECT * FROM Question
+    SELECT * FROM question
     WHERE QuestionBank_ID ='${questionBankId}'
     `)
             .then(data => {

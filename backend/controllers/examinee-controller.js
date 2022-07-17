@@ -93,6 +93,7 @@ exports.editExaminee = async (req, res) => {
     const gender = req.body.gender
     const examineeCondition = req.body.examineeCondition
 
+
     const schema = Joi.object().keys({
         firstName: Joi.string(),
         lastName: Joi.string(),
