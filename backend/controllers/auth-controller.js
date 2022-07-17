@@ -8,7 +8,7 @@ exports.examineeLogin = (async (req, res) => {
   const password = req.body.password
 
   let user = await db.conn.promise().query(`
-        SELECT * FROM Examinee
+        SELECT * FROM examinee
          WHERE Email ='${email}'
          `)
   if (user[0].length == 0) {
@@ -54,7 +54,7 @@ exports.instructorLogin = (async (req, res) => {
   const password = req.body.password
 
   let user = await db.conn.promise().query(`
-          SELECT * FROM Instructor
+          SELECT * FROM instructor
            WHERE Email ='${email}'
            `)
   if (user[0].length == 0) {

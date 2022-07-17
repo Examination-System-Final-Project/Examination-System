@@ -31,6 +31,7 @@ export class InstructorDashboardNavigationComponent implements OnInit {
     const token = localStorage.getItem('tokenInstructor')! 
     const decodedToken = this.helper.decodeToken(token)
     this.instructor.firstName=decodedToken.firstName
+    this.instructor.lastName=decodedToken.lastName
   }
   logout()
   {

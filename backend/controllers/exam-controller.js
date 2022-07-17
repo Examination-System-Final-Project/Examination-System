@@ -49,7 +49,7 @@ exports.createExam = async (req, res) => {
 }
 
 exports.setExamGradeManual = async (req, res) => {
-    const grade = req.body.grade
+    const grade = req.param('grade')
     const examId = req.param('exam')
 
     await db.conn.promise().query(`

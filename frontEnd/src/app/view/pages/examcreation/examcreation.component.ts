@@ -171,7 +171,8 @@ this._questionService.listQuestions(this.questionbankid).subscribe((result:any)=
     this._assignQuestion.questionid=this.questionid 
     console.log(this.questionid)
     console.log(grade)
-   this.assignQuestion(grade) 
+    this.value =  parseInt(grade); 
+   this.assignQuestion(this.value) 
 
    this.increasGrade (this.value)
   
@@ -180,9 +181,10 @@ this._questionService.listQuestions(this.questionbankid).subscribe((result:any)=
   console.log("false")
   this.questionid=id
   this._deletequestion.questionid=this.questionid
-  this.value =  parseInt(this.grade.controls['questionGrade'].value); 
-  this.decreasGrade(grade)
-  this.deleteQuestion()
+
+  this.value =  parseInt(grade); 
+  this.deleteQuestion();
+  this.decreasGrade(this.value);
 }
   }
 examcreate(){
@@ -215,6 +217,7 @@ assignQuestion(grade : any){
   {
     this.numberOfQuestion++
     console.log("done assign"+this.numberOfQuestion) 
+ 
   })
 
 }
@@ -224,6 +227,7 @@ assignGroup(){
   {
    
     console.log("done assign") 
+    
   },err=>{
     console.log(err)
   })}
@@ -233,6 +237,7 @@ deleteQuestion(){
   {
     this.numberOfQuestion--
     console.log("done delet"+this.numberOfQuestion) 
+
   })
 
 }
@@ -329,5 +334,12 @@ var space =(' ');
 var str22 = this.examcreationphase1.controls['endTime'].value+(':00'); 
 this.endTime = year2+('-')+month2+('-')+day2+space+str22;
 console.log(this.endTime)
+}
+sendgrade(){
+  this._assignQuestion.setGrade(this.examid ,this.examGrade).subscribe((result:any)=>
+
+  {
+    console.log("done greading") 
+  })
 }
 }

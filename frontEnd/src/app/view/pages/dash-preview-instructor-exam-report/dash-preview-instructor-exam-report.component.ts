@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { instructor } from 'src/app/models/instructor';
 import { NavBarServiceService } from 'src/app/services/core/nav-bar-service.service';
 import { LoginInstructorService } from 'src/app/services/instructor/login-instructor.service';
 
@@ -9,7 +11,16 @@ import { LoginInstructorService } from 'src/app/services/instructor/login-instru
 })
 export class DashPreviewInstructorExamReportComponent implements OnInit {
 
- 
+  instructor : instructor = { 
+    id : '',
+    firstName : '',
+    lastName : '',    
+    email : '',
+    organizationId : 1
+  }
+  helper = new JwtHelperService();
+
+
   showMe:boolean=true
   toggle(){
 
@@ -20,6 +31,10 @@ export class DashPreviewInstructorExamReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.nav.hide()
+    const token = localStorage.getItem('tokenInstructor')! 
+    const decodedToken = this.helper.decodeToken(token)
+    this.instructor.firstName=decodedToken.firstName
+this.instructor.lastName=decodedToken.lastName
   }
   logoutInstructor()
   {

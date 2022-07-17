@@ -9,7 +9,7 @@ examRouter.get("/evaluateExamineeAnswers", examController.evaluateExamineeAnswer
 examRouter.get("/listExamInfo", examController.listExamInfo)
 examRouter.get("/listExamQuestions", examController.listExamQuestions)
 examRouter.post("/assignQuestionToExam", examController.assignQuestionToExam)
-examRouter.post("/setExamGradeManual", examController.setExamGradeManual)
+examRouter.get("/setExamGradeManual", examController.setExamGradeManual)
 examRouter.post("/editQuestionGrade", examController.editQuestionGrade)
 examRouter.post("/createExam", examController.createExam)
 examRouter.post("/examAutoCreation", examController.examAutoCreation)
