@@ -7,7 +7,7 @@ import {
   HttpResponse,
   HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { finalize, Observable, tap } from 'rxjs';
 import { SpinnerService } from './spinner.service';
 
 @Injectable()
@@ -18,22 +18,10 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
 
-    this.spinnerService.requestStarted()
-    return this.handler(next,request);
+    this.spinnerService.show();
+    return next.handle(request).pipe(
+        finalize(() => this.spinnerService.hide())
+    );
   }
-  handler(next :any ,request : any)
-  {
-    return next.handle(request).pipe(tap(
-      (event)=>{
-        if(event instanceof HttpResponse)
-        {
-            this.spinnerService.requestEnded()
-        }
-      },
-      (error : HttpErrorResponse)=>{
-        this.spinnerService.resetSpinner()
-        throw error
-      }
-    ))
-  }
+ 
 }
