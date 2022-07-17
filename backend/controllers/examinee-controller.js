@@ -159,6 +159,7 @@
         })
     }
 
+
     exports.storeExamineeAnswer = async (req, res) => {
         const examinee = req.param('examinee')
         const exam = req.param('exam')
@@ -170,6 +171,7 @@
 
         try {
             await db.conn.promise().query(`
+
     SELECT * FROM examinee_answer
     WHERE examinee_Examinee_ID = ${examinee} AND exam_Exam_ID = ${exam} AND
     question_Question_ID = ${question}
