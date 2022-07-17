@@ -108,16 +108,12 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let hero of questions[0]; let in = index">
-                      <th scope="row"> <input class="form-check-input" type="checkbox" value="hero.QuestionId" id="flexCheckDefault" (click)="selected($event,hero.Question_ID)" ></th>
+                      <th scope="row"> <input class="form-check-input" type="checkbox" value="hero.QuestionId" id="flexCheckDefault" (click)="selected($event,hero.Question_ID,hero.QuestionWeight)" ></th>
                       <td>{{hero.QuestionTitle}}</td>
                       <td>{{hero.QuestionType}}</td>
                       <td>{{hero.QuestionDifficulty}} </td>
-                      <td>
-                        <form [formGroup]="grade">
-                      <input type="number" formControlName="questionGrade" class="form-control-sm" min="1">
-                      </form>
-                      
-                      </td>
+                      <td>{{hero.QuestionWeight}} </td>
+                    
       
                     </tr>
                  

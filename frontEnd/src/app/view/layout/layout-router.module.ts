@@ -47,6 +47,8 @@ import { InstructorReportsComponent } from "../pages/instructor-reports/instruct
 import { DashInstructorReportsComponent } from "../pages/dash-instructor-reports/dash-instructor-reports.component";
 import { InstructorPreviewExamReportComponent } from "../pages/instructor-preview-exam-report/instructor-preview-exam-report.component";
 import { DashPreviewInstructorExamReportComponent } from "../pages/dash-preview-instructor-exam-report/dash-preview-instructor-exam-report.component";
+import { PreviewExamInstructorComponent } from "../pages/preview-exam-instructor/preview-exam-instructor.component";
+import { DashPreviewExamInstructorComponent } from "../pages/dash-preview-exam-instructor/dash-preview-exam-instructor.component";
 
 
 
@@ -102,5 +104,6 @@ export const LayoutRouterModule : Routes =[
 
 {path : 'injuredExam/:id/:id2', component : InjuredExamComponent},
 {path:'instructorReports',component:DashInstructorReportsComponent},
-{path:'dash-instructor-preview-exam-report/:id',component:DashPreviewInstructorExamReportComponent}
+{path:'dash-instructor-preview-exam-report/:id',component:DashPreviewInstructorExamReportComponent},
+{path:'dashpreviewExamInstructor/:id',component:DashPreviewExamInstructorComponent}
 ]

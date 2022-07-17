@@ -96,6 +96,8 @@ import { InstructorReportsComponent } from './instructor-reports/instructor-repo
 import { DashInstructorReportsComponent } from './dash-instructor-reports/dash-instructor-reports.component';
 import { InstructorPreviewExamReportComponent } from './instructor-preview-exam-report/instructor-preview-exam-report.component';
 import { DashPreviewInstructorExamReportComponent } from './dash-preview-instructor-exam-report/dash-preview-instructor-exam-report.component';
+import { PreviewExamInstructorComponent } from './preview-exam-instructor/preview-exam-instructor.component';
+import { DashPreviewExamInstructorComponent } from './dash-preview-exam-instructor/dash-preview-exam-instructor.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -158,7 +160,9 @@ import { DashPreviewInstructorExamReportComponent } from './dash-preview-instruc
     InstructorReportsComponent,
     DashInstructorReportsComponent,
     InstructorPreviewExamReportComponent,
-    DashPreviewInstructorExamReportComponent
+    DashPreviewInstructorExamReportComponent,
+    PreviewExamInstructorComponent,
+    DashPreviewExamInstructorComponent
   ],
   entryComponents:[
     CreateQuestionDialogComponent,

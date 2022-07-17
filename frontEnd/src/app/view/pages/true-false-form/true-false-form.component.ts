@@ -34,6 +34,12 @@ export class TrueFalseFormComponent implements OnInit {
   }
   createTrueFalse()
   {
+    if (this.trueFalseForm.controls['correctAnswer'].value=="true"){
+      this.trueFalseForm.controls['Answer_1'].setValue("False");   
+    }
+else{
+  this.trueFalseForm.controls['Answer_1'].setValue("True");  
+}
     this.TF.createTF(this.trueFalseForm.value,this.recieveQBID()).subscribe((res:any)=>{
       
       console.log(res);

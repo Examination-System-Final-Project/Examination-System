@@ -52,9 +52,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
+
 @NgModule({
     declarations: [
         AppComponent,
+       
+
     ],
     imports: [
        
@@ -103,7 +106,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDatepickerModule,
     MatNativeDateModule,
     BrowserAnimationsModule
-   
+
     
         // AngularFontAwesomeModule
     ],

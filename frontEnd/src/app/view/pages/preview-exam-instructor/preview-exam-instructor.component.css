@@ -1,0 +1,39 @@
+body{
+    background-color: #ECECEC;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+    justify-content: center;
+}
+.fontTitle{
+    font-size: x-large;
+}
+label {
+    font-size: 20px;
+ 
+}
+h2{
+    font-weight: bolder;
+    font-size:25px;
+}
+#correct{
+    font-weight: bold;
+    color: black;
+}
+
+.font{
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#bigger{
+    font-size: x-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.correctAnswer{
+    padding-bottom: 3%;
+        display: block;
+        min-height: 1.5rem;
+        /* padding-left: 1.5em; */
+        margin-bottom: .125rem;
+}

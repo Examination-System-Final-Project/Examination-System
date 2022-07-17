@@ -231,13 +231,13 @@ exports.createQuestionEssay = async (req, res) => {
                 QuestionTitle,QuestionWeight, CorrectAnswer, QuestionBank_ID)
                VALUES(?,
                ?,?,
-               ?, ?, ?,
-               ?)
-               `, [questionType,
-                questionDifficulty, questionTitle,
-                questionWeight,
-                correctAnswer, QuestionBankId
-            ])
+
+               ?, ?, ?)
+               `,[questionType,
+               questionDifficulty,questionTitle,
+               questionWeight,
+               correctAnswer,QuestionBankId])
+
         await db.conn.promise()
             .query(`
             SELECT LAST_INSERT_ID(Question_ID) as question_ID from question order by LAST_INSERT_ID(Question_ID) desc limit 1;
