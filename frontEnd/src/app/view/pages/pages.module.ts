@@ -98,7 +98,7 @@ import { InstructorPreviewExamReportComponent } from './instructor-preview-exam-
 import { DashPreviewInstructorExamReportComponent } from './dash-preview-instructor-exam-report/dash-preview-instructor-exam-report.component';
 import { PreviewExamInstructorComponent } from './preview-exam-instructor/preview-exam-instructor.component';
 import { DashPreviewExamInstructorComponent } from './dash-preview-exam-instructor/dash-preview-exam-instructor.component';
-import { SpinnerComponent } from './spinner/spinner.component';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -164,7 +164,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     DashPreviewInstructorExamReportComponent,
     PreviewExamInstructorComponent,
     DashPreviewExamInstructorComponent,
-    SpinnerComponent
+
   ],
   entryComponents:[
     CreateQuestionDialogComponent,

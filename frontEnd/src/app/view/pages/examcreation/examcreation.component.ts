@@ -13,6 +13,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { instructor } from 'src/app/models/instructor';
 import { DateTimePicker } from '@syncfusion/ej2-calendars';
+import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-examcreation',
   templateUrl: './examcreation.component.html',
@@ -66,7 +67,12 @@ helper = new JwtHelperService();
     private _assignQuestion:AssignQuestionsService,
     private _deletequestion:DeleteQuestionService,
     private _groups:GroupsService,
-    public dialog : MatDialog) { }
+    public dialog : MatDialog,
+    private config: NgbDatepickerConfig) {  const current = new Date();
+      config.minDate = { year: current.getFullYear(), month: 
+      current.getMonth() + 1, day: current.getDate() };
+        //config.maxDate = { year: 2099, month: 12, day: 31 };
+      config.outsideDays = 'hidden';}
 
   ngOnInit() {
     const token = localStorage.getItem('tokenInstructor')! 
@@ -105,6 +111,7 @@ console.log(this.groups) ;})
           questionGrade : ['',Validators.required]
         })
   }
+  
   get f (){
     return this.examcreationphase1.controls
       }

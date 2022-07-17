@@ -37,7 +37,7 @@
                 
                 <td>
                 <div class="input-group">
-                  <input class="form-control" placeholder="Starting date"
+                  <input class="form-control" placeholder="Starting date" 
                          name="dp"  ngbDatepicker #d="ngbDatepicker" formControlName="startDate">
                   <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">Choose starting</button>
                   <small *ngIf="f.startDate.invalid && f.startDate.touched" class="text-danger">Starting date is empty</small> 
