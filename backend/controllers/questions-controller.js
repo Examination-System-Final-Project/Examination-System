@@ -36,7 +36,7 @@ exports.createQuestionMcq = async (req, res) => {
     let questionId
     try {
         await db.conn.promise()
-            .query(`INSERT INTO Question(QuestionType,QuestionDifficulty,
+            .query(`INSERT INTO question(QuestionType,QuestionDifficulty,
              QuestionTitle,QuestionWeight, Option_1, Option_2,Option_3,
               Option_4, Option_5, Option_6, CorrectAnswer, QuestionBank_ID)
             VALUES(?,
