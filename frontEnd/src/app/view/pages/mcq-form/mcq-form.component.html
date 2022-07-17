@@ -1,12 +1,5 @@
 <form [formGroup]="questionForm">
-  <div class="form-outline mb-4 p-2">
-      <label class="form-label px-1" >Question Type</label> 
-      <select  class="mx-3" formControlName="questionType" [(ngModel)]="defaultValue">
-          <option value="mcq" selected>MCQ</option>
-          <option value="truefalse">TRUE OR FALSE</option>
-          <option value="essay">ESSAY</option>
-        </select>
-  </div>
+
 <div class="form-outline mb-4 p-1 mt-3 ">
   <label class="form-label" for="difficulty" >Question Difficulty</label>
   <select  id="difficulty" class="mx-3" formControlName="questionDifficulty">
@@ -17,8 +10,8 @@
 </div>
 <div class="form-outline mb-4">
   <label class="form-label"  >Question Title</label>
-    <input type="text" id="Title" class="form-control form-control-lg" formControlName="questionTitle"   required />
-    
+
+       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  formControlName="questionTitle"></textarea>
 </div>
 <div class="form-outline mb-4">
   <label class="form-label" for="form3Example4cdg">Question Weight</label>
@@ -33,7 +26,7 @@
 <ng-container *ngFor="let answer of refForm.controls;index as i" id="answer_"+i class="form-outline mb-4">
   <label class="form-label my-3" for="option1">Option{{i+1}}</label>
   
-  <input type="text" id="option2" class="form-control form-control-lg"   formControlName="{{i}}" required />
+  <textarea type="text" id="option2" class="form-control form-control-lg"  rows="2" formControlName="{{i}}" required ></textarea>
   
 </ng-container>
 <div class="float-right" > <button (click)="addOpition();" class="btn-success my-3 mx-3 rounded-pill float-right"> Add option</button>
@@ -76,5 +69,14 @@
                 <option value="{{questionForm.get('answers').value.at(5)}}"> Option6</option>
               </select>
 </div>
+
 <button class="btn btn-primary  m-3" type="submit"  (click)="createQuestions();" >CREATE</button>
+<div class=" "style="visibility:hidden;">
+  <label class="form-label px-1" >Question Type</label> 
+  <select  formControlName="questionType"  [(ngModel)]="defaultValue">
+      <option value="mcq" >MCQ</option>
+      <option value="true or false" selected>TRUE OR FALSE</option>
+      <option value="essay">ESSAY</option>
+    </select>
+</div>
 </form>

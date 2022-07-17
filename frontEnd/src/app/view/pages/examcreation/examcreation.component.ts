@@ -160,27 +160,28 @@ this.questionbankid=e.target.value
 this._questionService.listQuestions(this.questionbankid).subscribe((result:any)=>{
   this.questions=result;
   console.log(this.questions);
-  this.grade.controls['questionGrade'].setValue(1);
+
   })
   }
-  selected (e:any,id:any) {
+  selected (e:any,id:any,grade:any) {
     this.send=!this.send ;
     if (e.target.checked){
     console.log("true")
     this.questionid=id
     this._assignQuestion.questionid=this.questionid 
     console.log(this.questionid)
-   this.assignQuestion(this.grade.value) 
-  this. value=  parseInt(this.grade.controls['questionGrade'].value); 
-   this.increasGrade (this.value)
+    console.log(grade)
+   this.assignQuestion(grade) 
 
+   this.increasGrade (this.value)
+  
     }
   if (!e.target.checked) {
   console.log("false")
   this.questionid=id
   this._deletequestion.questionid=this.questionid
   this.value =  parseInt(this.grade.controls['questionGrade'].value); 
-  this.decreasGrade(this.value)
+  this.decreasGrade(grade)
   this.deleteQuestion()
 }
   }
@@ -192,7 +193,7 @@ examcreate(){
   this.examcreationphase1.removeControl('endDate');
   this.examcreationphase1.controls['endTime'].setValue(this.endTime);
   console.log(this.examcreationphase1.value)
-  this._createexam.createExam(this.instructor.id,this.examcreationphase1.value).subscribe((result:any)=>
+  this._createexam.createExam(this.examcreationphase1.value).subscribe((result:any)=>
     {
       
       alert("exam created");
