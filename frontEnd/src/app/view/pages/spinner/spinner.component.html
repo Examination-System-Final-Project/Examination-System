@@ -1,3 +1,4 @@
-<div class="page-overlay-wrapper" *ngIf="showSpinner">
-    <div class="bee-spinner"></div>
-</div>
+<div *ngIf="isLoading | async" class="overlay">
+    <mat-progress-spinner class="spinner" [color]="color" [mode]="mode" [value]="value">
+    </mat-progress-spinner>
+  </div>

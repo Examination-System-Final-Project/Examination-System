@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewModule } from './view/view.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -48,7 +48,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { SpinnerService } from './services/core/spinner.service';
+import { HttpErrorInterceptor } from './services/core/http-error.interceptor';
 
 
 
@@ -140,7 +141,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         MatSortModule,
         MatPaginatorModule,
     ],
-    providers: [DatePipe],
+    providers: [DatePipe,SpinnerService,{ provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

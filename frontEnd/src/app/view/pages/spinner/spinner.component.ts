@@ -1,29 +1,25 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Subject } from 'rxjs';
 import { SpinnerService } from 'src/app/services/core/spinner.service';
 
 @Component({
   selector: 'app-spinner',
   templateUrl: './spinner.component.html',
-  styleUrls: ['./spinner.component.scss']
+  styleUrls: ['./spinner.component.css']
 })
 export class SpinnerComponent implements OnInit {
 
-  showSpinner = false;
-
+  color = 'primary';
+  mode = 'indeterminate';
+  value = 50;
+  isLoading: Subject<boolean> = this.spinnerService.isLoading;
   constructor(private spinnerService: SpinnerService, private cdRef: ChangeDetectorRef) {
 
   }
 
   ngOnInit() {
-    this.init();
+    
   }
 
-  init() {
-
-    this.spinnerService.getSpinnerObserver().subscribe((status) => {
-      this.showSpinner = (status === 'start');
-      this.cdRef.detectChanges();
-    });
-  }
 
 }
