@@ -304,7 +304,7 @@ const KEY = 'time';
         if(event.key=='Enter')
         {
           this.sendExamineeAnswersForEvaluation(this.examQuestions.examQuestion[this.currentQuestion].Question_ID)
-          this.openDialog()
+          // this.openDialog()
         }
       })
 
@@ -524,6 +524,7 @@ const KEY = 'time';
    }
    sendExamineeAnswersForEvaluation(questionID:any)
    {
+    localStorage.removeItem('numberOfQuestion')
     if(this.currentQuestion==this.examLength-1)
     {
       this.storeExamineeAnswer.storeExamineeAnswer(this.EID,this.ExID,questionID,this.answers.value).subscribe((res)=>{
@@ -537,6 +538,7 @@ const KEY = 'time';
     this.storeExamineeAnswer.sendAnswersForEvaluation(this.EID,this.ExID).subscribe((res)=>{
       console.log(res)
       this.storeExamineeAnswer.evaluateExam(this.EID,this.ExID).subscribe((res)=>{
+        this.route.navigate(['resultPage',this.EID,this.ExID])
         console.log(res)
       })
     },err=>{
@@ -555,21 +557,21 @@ const KEY = 'time';
       return false
     }
    }
-   openDialog()
-   {
-    const dialogConfig= new MatDialogConfig();
-    dialogConfig.disableClose=true;
-    let dialogRef =this.dialog.open(FinishAttemptDialogComponent,{data: {
-      examId: this.EID,
-      examineeid : this.ExID
-    }})
-    dialogRef.afterClosed().subscribe(result=>{
-      if(result=="true")
-      {
-            this.route.navigate(['studentDashboard'])
-      }
-    })
-   }
+  //  openDialog()
+  //  {
+  //   const dialogConfig= new MatDialogConfig();
+  //   dialogConfig.disableClose=true;
+  //   let dialogRef =this.dialog.open(FinishAttemptDialogComponent,{data: {
+  //     examId: this.EID,
+  //     examineeid : this.ExID
+  //   }})
+  //   dialogRef.afterClosed().subscribe(result=>{
+  //     if(result=="true")
+  //     {
+  //           this.route.navigate(['studentDashboard'])
+  //     }
+  //   })
+  //  }
    onKeydownMain(e:any, questionID:any)
    {
       if(e.key=="ArrowRight")
