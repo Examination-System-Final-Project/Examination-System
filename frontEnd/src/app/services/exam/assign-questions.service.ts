@@ -25,4 +25,7 @@ bassem:any
     console.log(grade.get('grade'))
     return this.http.post(`http://localhost:3000/exam/setExamGradeManual?exam=${examid}`,{grade : grade.get('grade')})
   }
+  setGrade (examid:any,grade:any){
+    return this.http.get(`http://localhost:3000/exam/setExamGradeManual?exam=${examid}&grade=${grade}`)
+  }
 }

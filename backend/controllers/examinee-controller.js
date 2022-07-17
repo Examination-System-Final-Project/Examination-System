@@ -6,7 +6,7 @@ const db = require('../database')
 exports.selectExaminee = async (req, res) => {
     
         const id = req.param('examinee')
-        const user = await db.conn.promise().query(`SELECT * FROM Examinee WHERE Examinee_ID ='${id}'`)
+        const user = await db.conn.promise().query(`SELECT * FROM examinee WHERE Examinee_ID ='${id}'`)
             .then(user => {
                 res.status(200).json(user[0][0])
             })
