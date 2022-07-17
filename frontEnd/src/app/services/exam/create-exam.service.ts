@@ -12,9 +12,9 @@ export class CreateExamService {
   examIdForAutoGeneration:any;
   step=2
   constructor(private http : HttpClient) { }
-  createExam(data : any )
+  createExam(id : any,data : any )
   {
-     return this.http.post(`http://localhost:3000/exam/createExam?instructor=9&organization=1`,data)
+     return this.http.post(`http://localhost:3000/exam/createExam?instructor=${id}&organization=1`,data)
   }
   getQuestionOfExamID(id:any)
   {

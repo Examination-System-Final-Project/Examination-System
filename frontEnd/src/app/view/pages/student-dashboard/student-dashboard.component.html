@@ -12,31 +12,31 @@
 </div> -->
 
 <div class="body row" *ngIf="found">
-<div class="a-box" *ngFor="let index of exam" style="margin: 2%; width: auto;">
-  <div class="img-container">
-    <div class="img-inner">
-      <div class="inner-skew">
-        <img src="../../../../assets/images/Stressed millennial guy studying before college exams.jpg">
+  <div class="a-box" *ngFor="let index of exam; let in = index" style="margin: 2%; width: auto;">
+    <div class="img-container">
+      <div class="img-inner">
+        <div class="inner-skew">
+          <img src="../../../../assets/images/Stressed millennial guy studying before college exams.jpg">
+        </div>
       </div>
     </div>
+    <div class="text-container">
+      <h3>{{index.ExamName}}</h3>
+      <div>
+        {{index.Description}}
+    </div>
+    <br>
+    
+     <a *ngIf="condition=='Normal'" [routerLink]="['/normalExam',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
+     <a *ngIf="condition=='Injured'" [routerLink]="['/injuredExam',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
+     <a *ngIf="condition=='Handicapped' && examStartTime[in] <= time && examEndTime[in] > time" [routerLink]="['/instructionPage',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
   </div>
-  <div class="text-container">
-    <h3>{{index.ExamName}}</h3>
-    <div>
-      {{index.Description}}
   </div>
-  <br>
+  </div>
+  <div *ngIf="!found" style="margin-top: 13%;">
+    <div class="d-flex flex-row justify-content-center">
   
-   <a *ngIf="condition=='Normal'" [routerLink]="['/normalExam',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
-   <a *ngIf="condition=='Injured'" [routerLink]="['/injuredExam',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
-   <a *ngIf="condition=='Handicapped'" [routerLink]="['/instructionPage',index.exam_ID,index.examinee_ID]" (click)="sendDuration(index.Duration)"   class="btn btn-primary">Go To Exam</a>
-</div>
-</div>
-</div>
-<div *ngIf="!found" style="margin-top: 13%;">
-  <div class="d-flex flex-row justify-content-center">
-
-    <img src="../../../../assets/images/search.png" style="width: 10%;">
+      <img src="../../../../assets/images/search.png" style="width: 10%;">
+    </div>
+  <h1 class="d-flex flex-row justify-content-center"> You are not assigned to any exams yet</h1>
   </div>
-<h1 class="d-flex flex-row justify-content-center"> You are not assigned to any exams yet</h1>
-</div>
