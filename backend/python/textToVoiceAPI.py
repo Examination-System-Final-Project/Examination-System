@@ -11,12 +11,15 @@ print("IDDIDIDIDIDIDDI ",sys.argv)
 
 def TTV (questionId):
 
-    mydb = mysql.connector.connect(
-        host= '127.0.0.1',
-        user= 'root',
-        password= 'Nosseralaa',
-        database= 'examination-system'
-    )    
+mydb = mysql.connector.connect(
+        host = 'sql11.freemysqlhosting.net',
+        user = 'sql11507096',
+        password = '8hn9EVJzLJ',
+        database = 'sql11507096',
+        port = '3306',
+        auth_plugin='mysql_native_password'
+    )
+
     mycursor = mydb.cursor()
     mycursor.execute("SELECT * FROM question WHERE Question_ID = "+questionId)
     myresult = mycursor.fetchall()
