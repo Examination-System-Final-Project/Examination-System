@@ -193,7 +193,9 @@ const KEY = 'time';
       if(event.key=='1' && this.examQuestions.examQuestion[this.currentQuestion].QuestionType == 'true or false'){
       let TFanswer1 = document.getElementById('1-TF') as HTMLInputElement
       TFanswer1.value=this.examQuestions.examQuestion[this.currentQuestion].Option_1
+      console.log(TFanswer1.value)
             this.answers.controls['examineeAnswer'].setValue( TFanswer1.value)
+            console.log(this.answers.value)
       let TFanswer2 = document.getElementById('2-TF') as HTMLInputElement
       TFanswer2.checked=false;
       TFanswer1.checked=true
@@ -210,7 +212,9 @@ const KEY = 'time';
         let mcqFirstAnswer = document.getElementById('1-mcq') as HTMLInputElement
         let mcqSecondAnswer = document.getElementById('2-mcq') as HTMLInputElement
         mcqSecondAnswer.value= this.examQuestions.examQuestion[this.currentQuestion].Option_2
+        console.log(mcqSecondAnswer.value)
         this.answers.controls['examineeAnswer'].setValue( mcqSecondAnswer.value)
+        console.log(this.answers.value)
         let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
         let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
         mcqFirstAnswer.checked=false;
@@ -222,8 +226,10 @@ const KEY = 'time';
       if(event.key=='2' && this.examQuestions.examQuestion[this.currentQuestion].QuestionType == 'true or false'){
         let TFanswer1 = document.getElementById('1-TF') as HTMLInputElement
         let TFanswer2 = document.getElementById('2-TF') as HTMLInputElement
-            TFanswer2.value=this.examQuestions.examQuestion[this.currentQuestion].Option_2
+            TFanswer2.value=this.examQuestions.examQuestion[this.currentQuestion].CorrectAnswer
+            console.log(TFanswer2.value)
             this.answers.controls['examineeAnswer'].setValue( TFanswer2.value)
+            console.log(this.answers.value)
         TFanswer1.checked=false
        TFanswer2.checked=true
         }
@@ -240,7 +246,9 @@ const KEY = 'time';
         let mcqSecondAnswer = document.getElementById('2-mcq') as HTMLInputElement
         let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
         mcqThirdAnswer.value= this.examQuestions.examQuestion[this.currentQuestion].Option_3
+        console.log(mcqThirdAnswer.value)
         this.answers.controls['examineeAnswer'].setValue( mcqThirdAnswer.value)
+        console.log(this.answers.value)
         let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
         mcqFirstAnswer.checked=false;
         mcqSecondAnswer.checked=false;
@@ -262,7 +270,9 @@ const KEY = 'time';
         let mcqThirdAnswer = document.getElementById('3-mcq') as HTMLInputElement
         let mcqFourthAnswer = document.getElementById('4-mcq') as HTMLInputElement
         mcqFourthAnswer.value= this.examQuestions.examQuestion[this.currentQuestion].Option_4
+        console.log(mcqFourthAnswer)
         this.answers.controls['examineeAnswer'].setValue( mcqFourthAnswer.value)
+        console.log(this.answers.value)
         mcqFirstAnswer.checked=false;
         mcqSecondAnswer.checked=false;
         mcqThirdAnswer.checked=false;
@@ -409,6 +419,11 @@ const KEY = 'time';
    }
    playAudio(id:any)
    {
+    this.audio2.pause()
+    clearTimeout(this.settimeout)
+    clearTimeout(this.settimeout2)
+    clearTimeout(this.settimeout3)
+    clearTimeout(this.settimeout4)
     
     this.audio1.src=`../../../../assets/questionsAudio/question${id}.mp3`
     this.audio1.load();
@@ -416,7 +431,7 @@ const KEY = 'time';
    }
    ExamAudioInstructions()
    {
-   
+   this.audio1.pause()
    
     if(this.currentQuestion<this.examQuestions.examQuestion.length && this.examQuestions.examQuestion[this.currentQuestion].QuestionType=='mcq')
     {
