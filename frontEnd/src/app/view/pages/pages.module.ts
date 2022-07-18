@@ -99,6 +99,7 @@ import { DashPreviewInstructorExamReportComponent } from './dash-preview-instruc
 import { PreviewExamInstructorComponent } from './preview-exam-instructor/preview-exam-instructor.component';
 import { DashPreviewExamInstructorComponent } from './dash-preview-exam-instructor/dash-preview-exam-instructor.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -208,7 +209,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatSortModule,
     MatPaginatorModule,
     CountdownModule,
-
+    DatePickerModule,
   ],
   exports:[
     HomeComponent,

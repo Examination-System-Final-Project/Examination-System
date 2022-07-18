@@ -51,7 +51,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerService } from './services/core/spinner.service';
 import { HttpErrorInterceptor } from './services/core/http-error.interceptor';
 
-
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 
 @NgModule({
@@ -63,6 +63,7 @@ import { HttpErrorInterceptor } from './services/core/http-error.interceptor';
     imports: [
        
         BrowserModule,
+        DatePickerModule,
         AppRoutingModule,
         RouterModule,
         ReactiveFormsModule,

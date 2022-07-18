@@ -19,6 +19,7 @@ export class StudentsListComponent implements OnInit {
 addstudent(id:any){
 this._group.assignExamineeToGroup(id).subscribe((result)=>
 {
+  this.ngOnInit()
   alert("student has been added successfully");
 },err=>
 {

@@ -168,7 +168,7 @@ exports.createQuestionTF = async (req, res) => {
     }
     try {
         await db.conn.promise()
-            .query(`INSERT INTO Question(QuestionType,QuestionDifficulty,
+            .query(`INSERT INTO question(QuestionType,QuestionDifficulty,
                 QuestionTitle,QuestionWeight, Option_1, CorrectAnswer, QuestionBank_ID)
                VALUES(?,
                ?,?,
@@ -227,7 +227,7 @@ exports.createQuestionEssay = async (req, res) => {
     }
     try {
         await db.conn.promise()
-            .query(`INSERT INTO Question(QuestionType,QuestionDifficulty,
+            .query(`INSERT INTO question(QuestionType,QuestionDifficulty,
                 QuestionTitle,QuestionWeight, CorrectAnswer, QuestionBank_ID)
                VALUES(?,
                ?,?,
