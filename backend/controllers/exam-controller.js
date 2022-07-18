@@ -477,7 +477,7 @@ exports.generateQuestionsAudioFiles = async (req, res) => {
     console.log('###########', questionId)
     let ID = questionId
     try {
-        const childPython = spawn('python', ['./python/textToVoiceAPI.py',
+        const childPython = spawn('python3', ['./python/textToVoiceAPI.py',
             ID,
         ], {
             shell: true
@@ -867,7 +867,7 @@ exports.evaluateExamineeAnswers = async (req, res) => {
     let isError = false
 
     try {
-        const childPython = spawn('python', ['./python/evaluation.py',
+        const childPython = spawn('python3', ['./python/evaluation.py',
             examId,
             examineeId
         ], {

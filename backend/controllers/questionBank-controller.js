@@ -43,7 +43,7 @@ exports.createQuestionBank = async (req, res) => {
 exports.deleteQuestionBank = async (req, res) => {
     const questionBankId = req.param('questionBank')
     await db.conn.promise().query(`
-        DELETE FROM questionBank 
+        DELETE FROM questionbank 
         WHERE QuestionBank_ID = '${questionBankId}'
         `)
         .then(data => {
@@ -80,7 +80,7 @@ exports.editQuestionBank = async (req, res) => {
     }
     await db.conn.promise()
         .query(`
-        UPDATE questionBank
+        UPDATE questionbank
         SET QuestionBankName = '${QuestionBankName}'
         WHERE QuestionBank_ID = '${questionBankId}'
         `)

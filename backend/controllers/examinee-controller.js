@@ -45,7 +45,7 @@ exports.addExaminee = async (req, res) => {
     if (result.error) {
         return res.status('400').send(result.error.details[0].message)
     }
-    const user = await db.conn.promise().query(`SELECT * FROM Examinee WHERE Email ='${email}'`)
+    const user = await db.conn.promise().query(`SELECT * FROM examinee WHERE Email ='${email}'`)
     if (user[0].length > 0) {
         res.status(400).json({
             status: 'error',
@@ -59,7 +59,7 @@ exports.addExaminee = async (req, res) => {
             }
             const hashedPassword = hash
             await db.conn.promise()
-                .query(`INSERT INTO Examinee(FirstName,LastName,Email,
+                .query(`INSERT INTO examinee(FirstName,LastName,Email,
         Password,PhoneNumber,Gender, Organization_ID, Examinee_condition)
         VALUES('${firstName}',
         '${lastName}','${email}','${hashedPassword}','${phoneNumber}',
@@ -108,7 +108,7 @@ exports.editExaminee = async (req, res) => {
     }
     await db.conn.promise()
         .query(`
-        UPDATE Examinee
+        UPDATE examinee
         SET FirstName = '${firstName}', LastName = '${lastName}',
         PhoneNumber = '${phoneNumber}',Examinee_condition = '${examineeCondition}'
         WHERE Examinee_ID = ${examineeId}
