@@ -91,7 +91,7 @@ exports.editExam = async (req, res) => {
     }
     await db.conn.promise()
         .query(`
-        UPDATE Exam
+        UPDATE exam
         SET ExamName = '${examName}', Duration = '${duration}',
         StartTime = '${startTime}',EndTime = '${endTime}',
         Description = '${description}'
@@ -329,12 +329,12 @@ exports.examAutoCreation = async (req, res) => {
         let questionBankQuery = ''
         for (let i = 0; i < arrayOfQuestionBanks.length; i++) {
             if (i + 1 != arrayOfQuestionBanks.length) {
-                questionBankQuery += `(SELECT * FROM Question WHERE QuestionBank_ID = ${arrayOfQuestionBanks[i].QuesionBankId} LIMIT ${arrayOfQuestionBanks[i].NumberOfQuestions})
+                questionBankQuery += `(SELECT * FROM question WHERE QuestionBank_ID = ${arrayOfQuestionBanks[i].QuesionBankId} LIMIT ${arrayOfQuestionBanks[i].NumberOfQuestions})
                 UNION
                 `
                 console.log('inside if', i)
             } else {
-                questionBankQuery += `(SELECT * FROM Question WHERE QuestionBank_ID = ${arrayOfQuestionBanks[i].QuesionBankId}  LIMIT ${arrayOfQuestionBanks[i].NumberOfQuestions});`
+                questionBankQuery += `(SELECT * FROM question WHERE QuestionBank_ID = ${arrayOfQuestionBanks[i].QuesionBankId}  LIMIT ${arrayOfQuestionBanks[i].NumberOfQuestions});`
                 console.log('inside else')
             }
         }
@@ -404,7 +404,7 @@ exports.storeExamineeAnswer = async (req, res) => {
     let checkAnswerExists = false
 
     await db.conn.promise().query(`
-    SELECT * FROM Examinee_Answer
+    SELECT * FROM examinee_answer
     WHERE Examinee_ID = ${examinee} AND Exam_ID = ${exam} AND
     Question_ID = ${question}
     `).then(data => {
@@ -422,14 +422,14 @@ exports.storeExamineeAnswer = async (req, res) => {
 
     if (checkAnswerExists) {
         await db.conn.promise().query(`
-        DELETE FROM Examinee_Answer
+        DELETE FROM examinee_answer
         WHERE Examinee_ID = ${examinee} AND
         Exam_ID = ${exam} AND
         Question_ID = ${question}
         `).then(async data => {
             console.log('deleted answer')
             await db.conn.promise().query(`
-        INSERT INTO Examinee_Answer (Examinee_ID, Exam_ID, Question_ID, Examinee_Answer)
+        INSERT INTO examinee_answer (Examinee_ID, Exam_ID, Question_ID, Examinee_Answer)
         VALUES ('${examinee}','${exam}','${question}','${examineeAnswer}')
         `).then(data => {
                 console.log('inserted after deleted')
@@ -453,7 +453,7 @@ exports.storeExamineeAnswer = async (req, res) => {
         })
     } else {
         await db.conn.promise().query(`
-    INSERT INTO Examinee_Answer (Examinee_ID, Exam_ID, Question_ID, Examinee_Answer)
+    INSERT INTO examinee_answer (Examinee_ID, Exam_ID, Question_ID, Examinee_Answer)
     VALUES ('${examinee}','${exam}','${question}','${examineeAnswer}')
     `).then(data => {
             console.log('inserted without deleting')

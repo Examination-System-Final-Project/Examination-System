@@ -23,16 +23,17 @@ export class DashInstructorReportsComponent implements OnInit {
   toggle(){
 
     this.showMe=!this.showMe
-    const token = localStorage.getItem('tokenInstructor')! 
-    const decodedToken = this.helper.decodeToken(token)
-    this.instructor.firstName=decodedToken.firstName
-this.instructor.lastName=decodedToken.lastName
+   
   } 
   constructor(public nav : NavBarServiceService,
     private logout : LoginInstructorService) { }
 
   ngOnInit(): void {
     this.nav.hide()
+    const token = localStorage.getItem('tokenInstructor')! 
+    const decodedToken = this.helper.decodeToken(token)
+    this.instructor.firstName=decodedToken.firstName
+this.instructor.lastName=decodedToken.lastName
   }
   logoutInstructor()
   {

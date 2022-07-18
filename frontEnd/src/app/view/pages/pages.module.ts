@@ -100,6 +100,9 @@ import { PreviewExamInstructorComponent } from './preview-exam-instructor/previe
 import { DashPreviewExamInstructorComponent } from './dash-preview-exam-instructor/dash-preview-exam-instructor.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+
+
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -165,7 +168,8 @@ import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
     DashPreviewInstructorExamReportComponent,
     PreviewExamInstructorComponent,
     DashPreviewExamInstructorComponent,
-    SpinnerComponent
+    SpinnerComponent,
+
   ],
   entryComponents:[
     CreateQuestionDialogComponent,

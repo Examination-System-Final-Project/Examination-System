@@ -20,6 +20,7 @@ def TTV (questionId):
         auth_plugin='mysql_native_password'
     )
 
+
     mycursor = mydb.cursor()
     mycursor.execute("SELECT * FROM question WHERE Question_ID = "+questionId)
     myresult = mycursor.fetchall()

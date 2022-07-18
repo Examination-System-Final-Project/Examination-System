@@ -108,7 +108,7 @@ exports.editQuestion = async (req, res) => {
 
     await db.conn.promise()
         .query(`
-        UPDATE Question
+        UPDATE question
         SET QuestionDifficulty = '${questionDifficulty}',
             QuestionTitle = '${questionTitle}',
             QuestionWeight = '${questionWeight}',
@@ -233,10 +233,11 @@ exports.createQuestionEssay = async (req, res) => {
                ?,?,
 
                ?, ?, ?)
-               `,[questionType,
-               questionDifficulty,questionTitle,
-               questionWeight,
-               correctAnswer,QuestionBankId])
+               `, [questionType,
+                questionDifficulty, questionTitle,
+                questionWeight,
+                correctAnswer, QuestionBankId
+            ])
 
         await db.conn.promise()
             .query(`

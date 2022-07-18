@@ -36,8 +36,10 @@
               <tr>
                 
                 <td>
+
                 <div class="d-flex  " style="column-gap: 1.5rem;">
                   <input class="form-control" placeholder="Starting date"
+
                          name="dp"  ngbDatepicker #d="ngbDatepicker" formControlName="startDate">
                          <i style="cursor: pointer;" class="fa-solid fa-calendar-days fa-xl mt-4 " (click)="d.toggle()" ></i> 
                   <small *ngIf="f.startDate.invalid && f.startDate.touched" class="text-danger">Starting date is empty</small> 
@@ -74,11 +76,11 @@
           </tr>
           </table>
         </div>
-                <input (click)="next(); examcreate();" type="button" name="next" class="next action-button" value="Next"/>
+                <input (click)=" next();examcreate();" type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>
         </form>
-        
-    
+     
+
 <!----------------------------------------------------------------------------------------------------------------------->
          <form [formGroup]="assignquestions" id="msform">
             <fieldset *ngIf="step == 2" >
