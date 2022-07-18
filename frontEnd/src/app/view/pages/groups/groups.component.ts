@@ -68,12 +68,13 @@ helper = new JwtHelperService();
    
     this._groupService.createGroup(this.form.value, this.instructor.id).subscribe((result)=>
     {
-     
+      this.ngOnInit()
       console.log(result)
-      alert("group created successfully");
+     
       this.form.reset();
     },err=>
     {
+      console.log(err)
       alert("something went wrong ")
     })}
 

@@ -36,22 +36,20 @@
               <tr>
                 
                 <td>
-                <div class="input-group">
-                  <input class="form-control" placeholder="Starting date" 
+
+                <div class="d-flex  " style="column-gap: 1.5rem;">
+                  <input class="form-control" placeholder="Starting date"
+
                          name="dp"  ngbDatepicker #d="ngbDatepicker" formControlName="startDate">
-                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">Choose starting</button>
+                         <i style="cursor: pointer;" class="fa-solid fa-calendar-days fa-xl mt-4 " (click)="d.toggle()" ></i> 
                   <small *ngIf="f.startDate.invalid && f.startDate.touched" class="text-danger">Starting date is empty</small> 
                 </div>
               </td>
               <br>
               <td style="visibility:hidden;">____________</td>
                <td>
-               <div class="input-group">
-                <input class="form-control" placeholder="Ending date" formControlName="endDate"
-                       name="dp" [(ngModel)]="model" ngbDatepicker #e="ngbDatepicker">
-                <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button">Choose Ending</button>
-                <small *ngIf="f.endDate.invalid && f.endDate.touched" class="text-danger">End date is empty</small> 
-              </div>
+                <input type="text"  placeholder="Starting time ex: 04:23"  formControlName="startTime" />
+                <small *ngIf="f.startTime.invalid && f.startTime.touched" class="text-danger">Starting time is either empty or invalid</small>
             </td>
              
            
@@ -59,8 +57,12 @@
           
           <tr>
             <td>
-              <input type="text"  placeholder="Starting time ex: 04:23"  formControlName="startTime" />
-              <small *ngIf="f.startTime.invalid && f.startTime.touched" class="text-danger">Starting time is either empty or invalid</small> 
+              <div class="d-flex  " style="column-gap: 1.5rem;">
+                <input class="form-control" placeholder="Ending date" formControlName="endDate"
+                       name="dp" [(ngModel)]="model" ngbDatepicker #e="ngbDatepicker">
+                       <i style="cursor: pointer;" class="fa-solid fa-calendar-days fa-xl mt-4 " (click)="e.toggle()" ></i> 
+                <small *ngIf="f.endDate.invalid && f.endDate.touched" class="text-danger">End date is empty</small> 
+              </div>
             </td>
             <br>
             <td style="visibility:hidden;">___________________________</td>

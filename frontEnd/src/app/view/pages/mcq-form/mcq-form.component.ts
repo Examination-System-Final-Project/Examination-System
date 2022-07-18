@@ -57,6 +57,7 @@ export class McqFormComponent implements OnInit {
       this.questionID=res.questionId
       console.log(this.questionID)
       this.questionForm.reset()
+      this.questionForm.controls['questionType'].setValue('mcq')
       this.i=0 ;
       this.generateAudio()
     },err=>{

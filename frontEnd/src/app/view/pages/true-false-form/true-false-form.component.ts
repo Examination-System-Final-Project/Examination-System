@@ -34,16 +34,19 @@ export class TrueFalseFormComponent implements OnInit {
   }
   createTrueFalse()
   {
-    if (this.trueFalseForm.controls['correctAnswer'].value=="True"){
+   
+    if (this.trueFalseForm.controls['correctAnswer'].value=="true"){
+
       this.trueFalseForm.controls['Answer_1'].setValue("False");   
     }
 else{
   this.trueFalseForm.controls['Answer_1'].setValue("True");  
 }
     this.TF.createTF(this.trueFalseForm.value,this.recieveQBID()).subscribe((res:any)=>{
-      
+      this.trueFalseForm.reset()
       console.log(res);
       this.questionID=res.questionId
+      this.ngOnInit()
       console.log(this.questionID)
       this.generateAudio()
     },err=>

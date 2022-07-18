@@ -33,6 +33,7 @@ const KEY = 'time';
     settimeout2:any
     settimeout3:any
     settimeout4:any
+    settimeout5 : any
     audio1=new Audio() // question audio 
     audio2=new Audio() // navigation mcq
     audio3=new Audio() // total exam questions mcq
@@ -362,7 +363,7 @@ const KEY = 'time';
       clearTimeout(this.settimeout2)
       clearTimeout(this.settimeout3)
       clearTimeout(this.settimeout4)
-      
+      clearTimeout(this.settimeout5)
       this.hideNextQuestionButton=false;
       if(this.currentQuestion>0)
       this.currentQuestion--
@@ -424,7 +425,7 @@ const KEY = 'time';
     clearTimeout(this.settimeout2)
     clearTimeout(this.settimeout3)
     clearTimeout(this.settimeout4)
-    
+    clearTimeout(this.settimeout5)
     this.audio1.src=`../../../../assets/questionsAudio/question${id}.mp3`
     this.audio1.load();
     this.audio1.play();
@@ -523,7 +524,7 @@ const KEY = 'time';
              },5000)
              if(this.currentQuestion==this.examQuestions.examQuestion.length-1)
              {
-              setTimeout(()=>{
+              this.settimeout5=setTimeout(()=>{
                 
                 this.audio13.src="../../../../assets/examAudioInstructions/endOfExam.mp3"
                 this.audio13.load()

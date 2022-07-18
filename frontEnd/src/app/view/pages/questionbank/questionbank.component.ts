@@ -54,7 +54,7 @@ helper = new JwtHelperService();
           {
             this.ngOnInit();
             console.log(result)
-            alert("question bank created successfully");
+            
             this.form.reset();
           },err=>
           {

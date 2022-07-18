@@ -35,14 +35,16 @@ export class EssayFormComponent implements OnInit {
    createEssay()
    {
      this.createQuestion.createEssay(this.questionForm.value,this.recieveQBID()).subscribe((res:any)=>{
+      this.questionForm.reset()
       this.questionID=res.questionId
+      this.ngOnInit()
       console.log(this.questionID)
       console.log(res);
       this.generateAudio()
     },err=>{
       console.log(err)
     })
-    this.onClose()
+   
   }
   onClose()
 {

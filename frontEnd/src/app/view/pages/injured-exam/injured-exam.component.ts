@@ -330,6 +330,7 @@ export class InjuredExamComponent implements OnInit {
   }
   previousQuestion()
   {
+
     this.hideNextQuestionButton=false;
     if(this.currentQuestion>0)
     this.currentQuestion--
@@ -379,7 +380,6 @@ export class InjuredExamComponent implements OnInit {
  }
  playAudio(id:any)
  {
-  
   // this.audio1.src=`../../../../assets/questionsAudio/question${id}.mp3`
   // this.audio1.load();
   // this.audio1.play();
