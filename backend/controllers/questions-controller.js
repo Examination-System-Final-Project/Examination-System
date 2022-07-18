@@ -266,7 +266,7 @@ exports.createQuestionEssay = async (req, res) => {
 exports.deleteQuestion = async (req, res) => {
     const questionId = req.param('question')
     await db.conn.promise().query(`
-    DELETE FROM Question 
+    DELETE FROM question 
     WHERE Question_ID = '${questionId}'
     `)
         .then(data => {
@@ -314,7 +314,7 @@ exports.listQuestions = async (req, res) => {
 exports.listQuestionInfo = async (req, res) => {
     const questionId = req.param('question') || 1
     const questions = await db.conn.promise().query(`
-    SELECT * FROM Question
+    SELECT * FROM question
     WHERE Question_ID ='${questionId}'
     `)
         .then(questions => {
@@ -352,7 +352,7 @@ exports.listQuestionsInQuestionBankNotInExam = async (req, res) => {
         })
 
         await db.conn.promise().query(`
-    SELECT * FROM Question
+    SELECT * FROM question
     WHERE QuestionBank_ID ='${questionBankId}'
     `)
             .then(data => {

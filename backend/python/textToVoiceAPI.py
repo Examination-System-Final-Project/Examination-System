@@ -11,7 +11,7 @@ print("IDDIDIDIDIDIDDI ",sys.argv)
 
 def TTV (questionId):
 
-mydb = mysql.connector.connect(
+    mydb = mysql.connector.connect(
         host = 'sql11.freemysqlhosting.net',
         user = 'sql11507096',
         password = '8hn9EVJzLJ',
