@@ -290,7 +290,6 @@ export class InjuredExamComponent implements OnInit {
       if(event.key=='Enter')
       {
         this.sendExamineeAnswersForEvaluation(this.examQuestions.examQuestion[this.currentQuestion].Question_ID)
-        this.openDialog()
       }
     })
 
@@ -494,6 +493,7 @@ export class InjuredExamComponent implements OnInit {
  }
  sendExamineeAnswersForEvaluation(questionID:any)
  {
+  localStorage.removeItem('numberOfQuestion')
   if(this.currentQuestion==this.examLength-1)
   {
     this.storeExamineeAnswer.storeExamineeAnswer(this.EID,this.ExID,questionID,this.answers.value).subscribe((res)=>{
@@ -507,6 +507,7 @@ export class InjuredExamComponent implements OnInit {
   this.storeExamineeAnswer.sendAnswersForEvaluation(this.EID,this.ExID).subscribe((res:any)=>{
     console.log(res)
     this.storeExamineeAnswer.evaluateExam(this.EID,this.ExID).subscribe((res:any)=>{
+      this.route.navigate(['resultPage',this.EID,this.ExID])
       console.log(res)
     })
   },err=>{
@@ -525,21 +526,21 @@ export class InjuredExamComponent implements OnInit {
     return false
   }
  }
- openDialog()
- {
-  const dialogConfig= new MatDialogConfig();
-  dialogConfig.disableClose=true;
-  let dialogRef =this.dialog.open(FinishAttemptDialogComponent,{data: {
-    examId: this.EID,
-    examineeid : this.ExID
-  }})
-  dialogRef.afterClosed().subscribe(result=>{
-    if(result=="true")
-    {
-          this.route.navigate(['studentDashboard'])
-    }
-  })
- }
+//  openDialog()
+//  {
+//   const dialogConfig= new MatDialogConfig();
+//   dialogConfig.disableClose=true;
+//   let dialogRef =this.dialog.open(FinishAttemptDialogComponent,{data: {
+//     examId: this.EID,
+//     examineeid : this.ExID
+//   }})
+//   dialogRef.afterClosed().subscribe(result=>{
+//     if(result=="true")
+//     {
+//           this.route.navigate(['studentDashboard'])
+//     }
+//   })
+//  }
  onKeydownMain(e:any, questionID:any)
  {
     if(e.key=="ArrowRight")
