@@ -56,9 +56,9 @@
     </div>
     
   </div>
-  <div class="m-3 card d-flex justify-content-center " *ngIf="desdata.QuestionType =='essay'">
+  <div class="m-3 card d-flex justify-content-center " *ngIf="hero.QuestionType =='essay'">
   
-  <div class="card-body " *ngIf="desdata.QuestionType =='essay'">
+  <div class="card-body " *ngIf="hero.QuestionType =='essay'">
     <h2 style="font-family:Georgia, 'Times New Roman', Times, serif ;" class="card-title "> {{hero.QuestionTitle}}</h2>
     <div>
       <div class="form-check form-check-inline">
@@ -67,7 +67,7 @@
       </div>
     </div>
     <hr>
-    <h3>Question Grade : {{grade}}</h3>
+    <h3>Question Grade : {{hero.Grade}}</h3>
     <div class="d-flex justify-content-end">
       
       <a  class="btn btn-primary" (click)="open(content);sendidforgrade(hero.Grade,hero.Question_ID)">Edit</a>
@@ -88,7 +88,7 @@
       </div>
     </div>
     <hr>
-    <h3>Question Grade : {{grade}}</h3>
+    <h3>Question Grade : {{hero.Grade}}</h3>
     <div class="d-flex justify-content-end">
       
       <a  class="btn btn-primary" (click)="open(content);sendidforgrade(hero.Grade,hero.Question_ID)">Edit</a>

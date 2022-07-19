@@ -503,10 +503,9 @@ export class NormalExamComponent implements OnInit {
  }
  sendExamineeAnswersForEvaluation(questionID:any)
  {
+  localStorage.removeItem('numberOfQuestion')
   if(this.currentQuestion==this.examLength-1)
   {
-    
-    localStorage.removeItem('numberOfQuestion')
     this.storeExamineeAnswer.storeExamineeAnswer(this.EID,this.ExID,questionID,this.answers.value).subscribe((res)=>{
       this.answers.controls['examineeAnswer'].setValue('')
       console.log(res)
@@ -518,7 +517,7 @@ export class NormalExamComponent implements OnInit {
   this.storeExamineeAnswer.sendAnswersForEvaluation(this.EID,this.ExID).subscribe((res:any)=>{
     console.log(res)
     this.storeExamineeAnswer.evaluateExam(this.EID,this.ExID).subscribe(async (res:any)=>{
-      let x = await res 
+      this.route.navigate(['resultPage',this.EID,this.ExID])
       console.log(res)
     })
   },err=>{
@@ -537,21 +536,21 @@ export class NormalExamComponent implements OnInit {
     return false
   }
  }
- openDialog()
- {
-  const dialogConfig= new MatDialogConfig();
-  dialogConfig.disableClose=true;
-  let dialogRef =this.dialog.open(FinishAttemptDialogComponent,{data: {
-    examId: this.EID,
-    examineeid : this.ExID
-  }})
-  dialogRef.afterClosed().subscribe(result=>{
-    if(result=="true")
-    {
-          this.route.navigate(['studentDashboard'])
-    }
-  })
- }
+//  openDialog()
+//  {
+//   const dialogConfig= new MatDialogConfig();
+//   dialogConfig.disableClose=true;
+//   let dialogRef =this.dialog.open(FinishAttemptDialogComponent,{data: {
+//     examId: this.EID,
+//     examineeid : this.ExID
+//   }})
+//   dialogRef.afterClosed().subscribe(result=>{
+//     if(result=="true")
+//     {
+//           this.route.navigate(['studentDashboard'])
+//     }
+//   })
+//  }
  onKeydownMain(e:any, questionID:any)
  {
     if(e.key=="ArrowRight")
