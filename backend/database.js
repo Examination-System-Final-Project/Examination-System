@@ -1,11 +1,9 @@
-const mysql = require('mysql2')
+const mysql = require("mysql2");
 
 exports.conn = mysql.createConnection({
-
-    host: 'sql11.freemysqlhosting.net',
-    user: 'sql11507096',
-    password: '8hn9EVJzLJ',
-    database: 'sql11507096',
-    port: '3306'
-
-})
+  host: "127.0.0.1",
+  user: "root",
+  password: "Nosseralaa",
+  database: "examination-system",
+  port: "3306",
+});

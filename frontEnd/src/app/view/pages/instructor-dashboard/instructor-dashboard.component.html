@@ -1,167 +1,155 @@
-<div class="container" style="margin-left: 14%;" >
-
-	<div class="app-body">
-
-		<div class="app-body-main-content">
-			<section class="service-section">
-
-				<div class="tiles">
-					<article class="tile">
-            <img src="../../../../assets/images/question.png" style="    display: block;
-            max-width: 64%;
-            margin-left: 17px;"/>
-						<div class="tile-header">
-
-							<h3>
-								<span>Question Bank</span>
-
-							</h3>
-						</div>
-						<a href="#">
-							<span>Go to question bank</span>
-
-
-
-						</a>
-
-					</article>
-					<article class="tile" style="background-color: #45FFBC; text-align: center;">
-            <img src="../../../../assets/images/exam.png" style="    display: block;
-            max-width: 73%;
-            margin-left: 12px;"/>
-						<div class="tile-header" style="text-align: center; margin-left : 30%">
-
-							<h3>
-								<span>Exams</span>
-
-							</h3>
-						</div>
-						<a href="#">
-							<span>Go to exam</span>
-
-						</a>
-					</article>
-					<article class="tile" style="background-color: rgb(189,187,183); text-align: center;">
-            <img src="../../../../assets/images/team.png" style="    display: block;
-            max-width: 73%;
-            margin-left: 12px;"/>
-						<div class="tile-header" style="margin-left: 30%;">
-
-							<h3>
-								<span>Groups</span>
-
-							</h3>
-						</div>
-						<a href="#">
-
-							<span>Go to groups</span>
-
-						</a>
-					</article>
-				</div>
-
-			</section>
-
-		</div>
-
-	</div>
-</div>
-
-
-<div class="container">
-<section class="transfer-section">
-  <div class="transfer-section-header">
-   <img src="../../../../assets/images/question.png" alt="">
-    <h2>Latest Question Bank </h2>
-
-  </div>
-  <div class="transfers">
-
-
-    <div class="transfer" *ngFor=" let qb of listQuestionBanks | slice:0:4">
-
-      <dl class="transfer-details">
-        <div>
-          <dt>{{qb.QuestionBankName}}</dt>
-          <dd>Question Bank Name</dd>
+<div class="container" style="margin-left: 14%">
+  <div class="app-body">
+    <div class="app-body-main-content">
+      <section class="service-section">
+        <div class="tiles">
+          <article class="tile">
+            <img
+              src="../../../../assets/images/question.png"
+              style="display: block; max-width: 64%; margin-left: 17px"
+            />
+            <div class="tile-header">
+              <h3>
+                <span>Question Bank</span>
+              </h3>
+            </div>
+            <a href="#">
+              <span>Go to question bank</span>
+            </a>
+          </article>
+          <article
+            class="tile"
+            style="background-color: #45ffbc; text-align: center"
+          >
+            <img
+              src="../../../../assets/images/exam.png"
+              style="display: block; max-width: 73%; margin-left: 12px"
+            />
+            <div
+              class="tile-header"
+              style="text-align: center; margin-left: 30%"
+            >
+              <h3>
+                <span>Exams</span>
+              </h3>
+            </div>
+            <a href="#">
+              <span>Go to exam</span>
+            </a>
+          </article>
+          <article
+            class="tile"
+            style="background-color: rgb(189, 187, 183); text-align: center"
+          >
+            <img
+              src="../../../../assets/images/team.png"
+              style="display: block; max-width: 73%; margin-left: 12px"
+            />
+            <div class="tile-header" style="margin-left: 30%">
+              <h3>
+                <span>Groups</span>
+              </h3>
+            </div>
+            <a href="#">
+              <span>Go to groups</span>
+            </a>
+          </article>
         </div>
-        <div>
-
-          <dt>{{qb.NumberOfQuestions}}</dt>
-          <dt *ngIf="qb.QuestionBankName=='Software Engineering'" style="margin-right: 124px;"></dt>
-          <dd>Number Of Questions</dd>
-        </div>
-        <div>
-         <a [routerLink]="['/dashpreviewQuestionBank',qb.QuestionBank_ID]"> Preview this QuestionBank</a>
-          
-        </div>
-      </dl>
-      
+      </section>
     </div>
   </div>
-</section>
 </div>
-<br>
+
 <div class="container">
   <section class="transfer-section">
     <div class="transfer-section-header">
-     <img src="../../../../assets/images/exam.png "/>
-      <h2>Latest Exams</h2>
-
+      <img src="../../../../assets/images/question.png" alt="" />
+      <h2>Latest Question Bank</h2>
     </div>
     <div class="transfers">
-
-
-      <div class="transfer"  *ngFor=" let exam of listExams | slice:0:4">
-
+      <div
+        class="transfer"
+        *ngFor="let qb of listQuestionBanks | slice : 0 : 4"
+      >
         <dl class="transfer-details">
           <div>
-            <dt>{{exam.ExamName}}</dt>
-            <dd>Exam Name</dd>
+            <dt>{{ qb.QuestionBankName }}</dt>
+            <dd>Question Bank Name</dd>
           </div>
           <div>
-            <dt>{{exam.Description}}</dt>
-            <dt *ngIf="exam.ExamName=='Nature Language Processing'" style="margin-right: 82px ;"></dt>
-            <dd>Exam Description </dd>
+            <dt>{{ qb.NumberOfQuestions }}</dt>
+            <dt
+              *ngIf="qb.QuestionBankName == 'Software Engineering'"
+              style="margin-right: 124px"
+            ></dt>
+            <dd>Number Of Questions</dd>
           </div>
           <div>
-            <a  [routerLink]="['/dashboard-edit-exam-questions',exam.Exam_ID]"> Preview this Exam</a>
+            <a [routerLink]="['/dashpreviewQuestionBank', qb.QuestionBank_ID]">
+              Preview this QuestionBank</a
+            >
           </div>
         </dl>
-        
       </div>
     </div>
   </section>
-  </div>
-  <br>
-  <div class="container">
-    <section class="transfer-section">
-      <div class="transfer-section-header">
-       <img src="../../../../assets/images/team.png" alt="">
-        <h2>Latest Groups</h2>
-
-      </div>
-      <div class="transfers">
-
-
-        <div class="transfer" *ngFor="let group of listGroups | slice : 0:4">
-
-          <dl class="transfer-details">
-            <div>
-              <dt>{{group.GroupName}}</dt>
-              <dd>Group Name</dd>
-            </div>
-            <div>
-              <dt>{{group.Description}}</dt>
-              <dd> Group Description</dd>
-            </div>
-            <div>
-              <a [routerLink]="['/dashboardpreviewGroups',group.Group_ID]"></a>
-            </div>
-          </dl>
-          
-        </div>
-      </div>
-    </section>
+</div>
+<br />
+<div class="container">
+  <section class="transfer-section">
+    <div class="transfer-section-header">
+      <img src="../../../../assets/images/exam.png " />
+      <h2>Latest Exams</h2>
     </div>
-<br>
+    <div class="transfers">
+      <div class="transfer" *ngFor="let exam of listExams | slice : 0 : 4">
+        <dl class="transfer-details">
+          <div>
+            <dt>{{ exam.ExamName }}</dt>
+            <dd>Exam Name</dd>
+          </div>
+          <div>
+            <dt>{{ exam.Description }}</dt>
+            <dt
+              *ngIf="exam.ExamName == 'Nature Language Processing'"
+              style="margin-right: 82px"
+            ></dt>
+            <dd>Exam Description</dd>
+          </div>
+          <div>
+            <a [routerLink]="['/dashboard-edit-exam-questions', exam.Exam_ID]">
+              Preview this Exam</a
+            >
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</div>
+<br />
+<div class="container">
+  <section class="transfer-section">
+    <div class="transfer-section-header">
+      <img src="../../../../assets/images/team.png" alt="" />
+      <h2>Latest Groups</h2>
+    </div>
+    <div class="transfers">
+      <div class="transfer" *ngFor="let group of listGroups | slice : 0 : 4">
+        <dl class="transfer-details">
+          <div>
+            <dt>{{ group.GroupName }}</dt>
+            <dd>Group Name</dd>
+          </div>
+          <div>
+            <dt>{{ group.Description }}</dt>
+            <dd>Group Description</dd>
+          </div>
+          <div>
+            <a [routerLink]="['/dashboardpreviewGroups', group.Group_ID]"></a>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</div>
+<br />
